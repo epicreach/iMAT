@@ -38,4 +38,6 @@ public class iMatApp extends Application {
     }
     //test
     // 28/4-23 test av david hello world
+    //skit ball kod
 }
+
