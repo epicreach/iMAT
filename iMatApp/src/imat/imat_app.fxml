@@ -23,30 +23,39 @@
                         <Image url="@../../../../../../Pictures/Photoshop/iMAT.png" />
                      </image>
                   </ImageView>
-                  <TextField layoutX="292.0" layoutY="43.0" prefHeight="38.0" prefWidth="417.0" promptText="Sök" />
-                  <Button layoutX="193.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: #7DB1FF;" text="Tidigare Köp">
+                  <TextField layoutX="292.0" layoutY="43.0" prefHeight="38.0" prefWidth="417.0" promptText="Sök">
                      <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font></Button>
-                  <Button layoutX="351.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: #7DB1FF;" text="Favoriter">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font></Button>
-                  <Button layoutX="507.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: #7DB1FF;" text="Leveranstider">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font></Button>
-                  <Button layoutX="667.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" style="-fx-background-color: #7DB1FF;" text="Profil" />
+                        <Font size="20.0" />
+                     </font></TextField>
                   <ImageView fx:id="kundvagnicon" fitHeight="46.0" fitWidth="50.0" layoutX="936.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../backend/assets/263142.png" />
                      </image>
                   </ImageView>
-                  <Text layoutX="763.0" layoutY="73.0" stroke="#064aa4" strokeType="OUTSIDE" strokeWidth="0.0" text="KUNDVAGN" wrappingWidth="172.998046875">
+                  <Text layoutX="763.0" layoutY="73.0" stroke="#064aa4" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #7DB1FF;" text="KUNDVAGN" wrappingWidth="172.998046875">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Text>
+                  <Button fx:id="tidigarekopbutton" layoutX="74.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Tidigare Köp">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Button>
+                  <Button layoutX="291.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Favoriter">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="507.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Leveranstider">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="722.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Profil">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
          </top>
