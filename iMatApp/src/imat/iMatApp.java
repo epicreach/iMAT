@@ -36,8 +36,6 @@ public class iMatApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    //test
-    // 28/4-23 test av david hello world
-    //skit ball kod
+    
 }
 

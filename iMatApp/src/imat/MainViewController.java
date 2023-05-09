@@ -7,12 +7,14 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 public class MainViewController implements Initializable {
 
     @FXML
-    Label pathLabel;
+    ImageView imatLogo;
+    ImageView kundvagnicon;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
@@ -20,7 +22,7 @@ public class MainViewController implements Initializable {
 
         String iMatDirectory = iMatDataHandler.imatDirectory();
 
-        pathLabel.setText(iMatDirectory);
+        
     }
 
 }
