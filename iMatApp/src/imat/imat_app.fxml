@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +15,7 @@
 
 <AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
-      <BorderPane prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="mainID" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Pane prefHeight="155.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" BorderPane.alignment="CENTER">
                <children>
@@ -67,9 +68,23 @@
                         <Pane prefHeight="712.0" prefWidth="984.0">
                            <children>
                               <HBox layoutX="72.0" layoutY="41.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
-                              <HBox layoutX="72.0" layoutY="218.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
+                              <HBox layoutX="72.0" layoutY="218.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;">
+                                 <children>
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fx:id="pictureID" fitHeight="141.0" fitWidth="203.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
+                                          <Label fx:id="productName" layoutX="72.0" text="Testtext">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Button fx:id="nextItem" layoutX="75.0" layoutY="119.0" mnemonicParsing="false" text="Nästa" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children></HBox>
                               <HBox layoutX="72.0" layoutY="390.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
                               <HBox layoutX="72.0" layoutY="554.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </Pane>
                      </content>
