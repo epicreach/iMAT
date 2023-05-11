@@ -24,6 +24,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -73,15 +74,6 @@ public class MainViewController implements Initializable {
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
-    @FXML
-    private void handleButtonClick(ActionEvent event) throws IOException {
-        Parent popup = FXMLLoader.load(getClass().getResource("kundvagn_popout.fxml"));
-        Scene popupScene = new Scene(popup, 400, 400);
-        Stage window = new Stage();
-        window.setScene(popupScene);
-        window.initModality(Modality.APPLICATION_MODAL);
-        window.showAndWait();
-    }
 
     public void initialize(URL url, ResourceBundle rb) {
 
