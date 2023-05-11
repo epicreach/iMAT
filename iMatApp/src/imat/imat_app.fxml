@@ -10,12 +10,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
+<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
-      <BorderPane fx:id="mainID" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="mainID" prefHeight="700.0" prefWidth="1000.0" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Pane prefHeight="155.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" BorderPane.alignment="CENTER">
                <children>
@@ -33,64 +33,70 @@
                         <Image url="@../../../backend/assets/263142.png" />
                      </image>
                   </ImageView>
-                  <Text layoutX="763.0" layoutY="73.0" stroke="#064aa4" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #7DB1FF;" text="KUNDVAGN" wrappingWidth="172.998046875">
-                     <font>
-                        <Font name="System Bold" size="29.0" />
-                     </font>
-                  </Text>
                   <Button fx:id="tidigarekopbutton" layoutX="74.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Tidigare Köp">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font></Button>
-                  <Button layoutX="291.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Favoriter">
+                  <Button fx:id="favoriterbutton" layoutX="291.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Favoriter">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Button layoutX="507.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Leveranstider">
+                  <Button fx:id="leveranstiderbutton" layoutX="507.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Leveranstider">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Button layoutX="722.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Profil">
+                  <Button fx:id="profilbutton" layoutX="722.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Profil">
                      <font>
-                        <Font name="System Bold" size="21.0" />
+                        <Font name="Verdana Pro Black" size="21.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="743.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="41.0" prefWidth="186.0" text="Kundvagn">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
          </top>
          <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane prefHeight="542.0" prefWidth="1000.0">
-                     <content>
-                        <Pane prefHeight="712.0" prefWidth="984.0">
-                           <children>
-                              <HBox layoutX="72.0" layoutY="41.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
-                              <HBox layoutX="72.0" layoutY="218.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;">
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="402.0" StackPane.alignment="CENTER_RIGHT" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane prefHeight="542.0" prefWidth="1000.0">
+                           <content>
+                              <Pane prefHeight="712.0" prefWidth="984.0">
                                  <children>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                    <HBox layoutX="72.0" layoutY="41.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
+                                    <HBox layoutX="72.0" layoutY="218.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;">
                                        <children>
-                                          <ImageView fx:id="pictureID" fitHeight="141.0" fitWidth="203.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
-                                          <Label fx:id="productName" layoutX="72.0" text="Testtext">
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="nextItem" layoutX="75.0" layoutY="119.0" mnemonicParsing="false" text="Nästa" />
+                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Label fx:id="productName" layoutX="72.0" text="Testtext">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="nextItem" layoutX="75.0" layoutY="119.0" mnemonicParsing="false" text="Nästa" />
+                                             </children>
+                                          </AnchorPane>
+                                          <ImageView fx:id="pictureID" fitHeight="141.0" fitWidth="203.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
-                                    </AnchorPane>
-                                 </children></HBox>
-                              <HBox layoutX="72.0" layoutY="390.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
-                              <HBox layoutX="72.0" layoutY="554.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                           </children>
-                        </Pane>
-                     </content>
-                  </ScrollPane>
+                                    </HBox>
+                                    <HBox layoutX="72.0" layoutY="390.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
+                                    <HBox layoutX="72.0" layoutY="554.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
+                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </Pane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
                </children>
-            </Pane>
+            </StackPane>
          </center>
       </BorderPane>
    </children>

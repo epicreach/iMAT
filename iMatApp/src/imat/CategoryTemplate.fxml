@@ -8,27 +8,126 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox prefHeight="139.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox prefHeight="208.0" prefWidth="920.0" style="-fx-background-color: #d3d3d3;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <AnchorPane maxHeight="190.0" maxWidth="185.0" minHeight="0.0" minWidth="0.0" prefHeight="140.0" prefWidth="180.0">
+        <AnchorPane maxHeight="209.0" maxWidth="185.0" minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="178.0" style="-fx-background-color: #FFFFFF;">
             <children>
-                <ImageView fitHeight="93.0" fitWidth="89.0" layoutX="46.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="118.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@{image}" />
                     </image>
                 </ImageView>
-                <Text layoutX="31.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{name}">
+                <Text layoutX="9.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{name}" wrappingWidth="162.40000000000003">
                     <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="23.0" />
                     </font>
                 </Text>
-                <Text layoutX="31.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{price} kr">
+                <Text layoutX="9.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{price} kr">
                     <font>
-                        <Font size="12.0" />
+                        <Font size="18.0" />
                     </font>
                 </Text>
-                <Button layoutX="116.0" layoutY="137.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="25.0" prefWidth="51.0" text="Add" />
+                <Button layoutX="86.0" layoutY="155.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #7DB1FF;" text="Lägg Till">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
             </children>
         </AnchorPane>
+      <AnchorPane maxHeight="209.0" maxWidth="185.0" minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="178.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ImageView fitHeight="118.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@{image}" />
+               </image>
+            </ImageView>
+            <Text layoutX="9.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{name}" wrappingWidth="162.40000000000003">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Text>
+            <Text layoutX="9.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{price} kr">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="86.0" layoutY="155.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #7DB1FF;" text="Lägg Till">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="209.0" maxWidth="185.0" minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="178.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ImageView fitHeight="118.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@{image}" />
+               </image>
+            </ImageView>
+            <Text layoutX="9.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{name}" wrappingWidth="162.40000000000003">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Text>
+            <Text layoutX="9.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{price} kr">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="86.0" layoutY="155.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #7DB1FF;" text="Lägg Till">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="209.0" maxWidth="185.0" minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="178.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ImageView fitHeight="118.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@{image}" />
+               </image>
+            </ImageView>
+            <Text layoutX="9.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{name}" wrappingWidth="162.40000000000003">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Text>
+            <Text layoutX="9.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{price} kr">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="86.0" layoutY="155.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #7DB1FF;" text="Lägg Till">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="209.0" maxWidth="185.0" minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="178.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ImageView fitHeight="118.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@{image}" />
+               </image>
+            </ImageView>
+            <Text layoutX="9.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{name}" wrappingWidth="162.40000000000003">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Text>
+            <Text layoutX="9.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="{price} kr">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="86.0" layoutY="155.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="38.0" prefWidth="89.0" style="-fx-background-color: #7DB1FF;" text="Lägg Till">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
     </children>
 </HBox>
