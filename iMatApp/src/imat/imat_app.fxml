@@ -80,10 +80,10 @@
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <Button fx:id="nextItem" layoutX="75.0" layoutY="119.0" mnemonicParsing="false" text="Nästa" />
+                                                <Button fx:id="nextItem" layoutX="75.0" layoutY="126.0" mnemonicParsing="false" text="Nästa" />
+                                                <ImageView fx:id="pictureID" fitHeight="105.0" fitWidth="169.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
                                              </children>
                                           </AnchorPane>
-                                          <ImageView fx:id="pictureID" fitHeight="141.0" fitWidth="203.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </HBox>
                                     <HBox layoutX="72.0" layoutY="390.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />

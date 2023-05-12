@@ -84,21 +84,21 @@ public class MainViewController implements Initializable {
         fontSetter();
 
 
-        /*List<Product> products = iMatDataHandler.getProducts();
+        List<Product> products = iMatDataHandler.getProducts();
         refresh_item(1,products);
 
-        categoryTemplate.setSpacing(50);
+        //categoryTemplate.setSpacing(50);
 
         //Template setOnAction-funktion
         nextItem.setOnAction(event -> {
             currentIndex = (currentIndex + 1) % products.size();
             refresh_item(currentIndex, products);
         });
-*/
+
         
     }
 
-    /*public void refresh_item(int num, List<Product> products){
+    public void refresh_item(int num, List<Product> products){
             //Hämtar in en produkt på ett index
             Product item = iMatDataHandler.getProduct(num);
             //Laddar in bilden
@@ -110,7 +110,7 @@ public class MainViewController implements Initializable {
             productName.setText(text);
 
         
-    }*/
+    }
 
     public void fontSetter(){
         Font font = Font.font("Verdana Pro Black", FontWeight.BOLD, 20);
