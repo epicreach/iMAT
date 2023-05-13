@@ -13,26 +13,21 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="700.0" minWidth="1000.0" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
    <children>
-      <BorderPane fx:id="mainID" prefHeight="700.0" prefWidth="1000.0" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="mainID" prefHeight="700.0" stylesheets="@imat_app.css" AnchorPane.bottomAnchor="-3.2000000000000455" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <Pane prefHeight="155.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="imatlogo" fitHeight="204.0" fitWidth="256.0" layoutX="14.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imatLogo" fitHeight="204.0" fitWidth="256.0" layoutX="14.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Pictures/Photoshop/iMAT.png" />
+                        <Image url="@resources/iMAT.png" />
                      </image>
                   </ImageView>
                   <TextField layoutX="292.0" layoutY="43.0" prefHeight="38.0" prefWidth="417.0" promptText="Sök">
                      <font>
                         <Font size="20.0" />
                      </font></TextField>
-                  <ImageView fx:id="kundvagnicon" fitHeight="46.0" fitWidth="50.0" layoutX="936.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../backend/assets/263142.png" />
-                     </image>
-                  </ImageView>
                   <Button fx:id="tidigarekopbutton" layoutX="74.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #7DB1FF;" text="Tidigare Köp">
                      <font>
                         <Font name="System Bold" size="21.0" />
@@ -52,7 +47,7 @@
                         <Font name="Verdana Pro Black" size="21.0" />
                      </font>
                   </Button>
-                  <Button layoutX="743.0" layoutY="44.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="186.0" text="Kundvagn">
+                  <Button fx:id="kundvagnbutton" layoutX="743.0" layoutY="44.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="186.0" text="Kundvagn">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>

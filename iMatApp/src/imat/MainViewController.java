@@ -6,14 +6,17 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.awt.event.ActionEvent;
 import java.awt.geom.RoundRectangle2D;
+import java.io.File;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,7 +38,8 @@ public class MainViewController implements Initializable {
 
     @FXML
     ImageView imatLogo;
-    ImageView kundvagnicon;
+    @FXML
+    Button kundvagnbutton;
 
     @FXML
     BorderPane mainID;
@@ -83,6 +87,7 @@ public class MainViewController implements Initializable {
 
         fontSetter();
 
+        imageSetter();
 
         List<Product> products = iMatDataHandler.getProducts();
         refresh_item(1,products);
@@ -120,7 +125,27 @@ public class MainViewController implements Initializable {
         profilbutton.setFont(font);
 
     }
-
-   
+    
+    /*Lägger till iMAT logon och ikonen i Kundvagnsknappen */
+    public void imageSetter(){
+        File file = new File("iMatApp/src/imat/resources/iMAT.png");
+        Image image = new Image(file.toURI().toString());
+        imatLogo.setImage(image);
+        
+        File iconfile = new File("iMatApp/src/imat/resources/263142.png");
+        Image iconimage = new Image(iconfile.toURI().toString());
+        ImageView imageView = new ImageView(iconimage);
+        imageView.setFitHeight(25);
+        imageView.setFitWidth(25);
+    
+        Label label = new Label("Kundvagn");
+        label.setStyle("-fx-font-weight: bold;");
+    
+        HBox hbox = new HBox(label, imageView);
+        hbox.setAlignment(Pos.CENTER);
+    
+        kundvagnbutton.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        kundvagnbutton.setGraphic(hbox);
+    }
 
 }
