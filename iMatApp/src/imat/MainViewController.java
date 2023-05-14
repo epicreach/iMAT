@@ -42,6 +42,9 @@ public class MainViewController implements Initializable {
     Button kundvagnbutton;
 
     @FXML
+    ImageView profilepicture;
+    
+    @FXML
     BorderPane mainID;
 
     @FXML
@@ -131,6 +134,10 @@ public class MainViewController implements Initializable {
         File file = new File("iMatApp/src/imat/resources/iMAT.png");
         Image image = new Image(file.toURI().toString());
         imatLogo.setImage(image);
+
+        File profilefile = new File("iMatApp/src/imat/resources/papasmurf.jpg");
+        Image profilepic = new Image(profilefile.toURI().toString());
+        profilepicture.setImage(profilepic);
         
         File iconfile = new File("iMatApp/src/imat/resources/263142.png");
         Image iconimage = new Image(iconfile.toURI().toString());
