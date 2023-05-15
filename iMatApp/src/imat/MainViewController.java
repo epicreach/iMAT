@@ -64,12 +64,10 @@ public class MainViewController implements Initializable {
 
     @FXML
     Button profilbutton;
-
-    @FXML
-    Button leveranstiderbutton;
-
     @FXML
     HBox categoryTemplate;
+    @FXML
+    Button kategoriknapp;
 
     @FXML
     Button jamforkopvagnbutton;
@@ -123,9 +121,9 @@ public class MainViewController implements Initializable {
     public void fontSetter(){
         Font font = Font.font("Verdana Pro Black", FontWeight.BOLD, 20);
         tidigarekopbutton.setFont(font);
-        leveranstiderbutton.setFont(font);
         favoriterbutton.setFont(font);
         profilbutton.setFont(font);
+        kategoriknapp.setFont(font);
 
     }
     
@@ -135,9 +133,10 @@ public class MainViewController implements Initializable {
         Image image = new Image(file.toURI().toString());
         imatLogo.setImage(image);
 
-        File profilefile = new File("iMatApp/src/imat/resources/papasmurf.jpg");
+
+       /*  File profilefile = new File("iMatApp/src/imat/resources/papasmurf.png");
         Image profilepic = new Image(profilefile.toURI().toString());
-        profilepicture.setImage(profilepic);
+        profilepicture.setImage(profilepic); */
         
         File iconfile = new File("iMatApp/src/imat/resources/263142.png");
         Image iconimage = new Image(iconfile.toURI().toString());
