@@ -23,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -58,10 +59,11 @@ public class MainViewController implements Initializable {
 
     @FXML
     Button tidigarekopbutton;
-
+    private boolean isInitialized = false;
     @FXML
     Button favoriterbutton;
-
+    @FXML
+    Pane kundvagnsidebar;
     @FXML
     Button profilbutton;
     @FXML
@@ -84,14 +86,14 @@ public class MainViewController implements Initializable {
 
         String iMatDirectory = iMatDataHandler.imatDirectory();
         
-        
+        Boolean controller;
 
         fontSetter();
 
         imageSetter();
 
         List<Product> products = iMatDataHandler.getProducts();
-        refresh_item(1,products);
+       refresh_item(1,products);
 
         //categoryTemplate.setSpacing(50);
 
@@ -100,7 +102,7 @@ public class MainViewController implements Initializable {
             currentIndex = (currentIndex + 1) % products.size();
             refresh_item(currentIndex, products);
         });
-
+        isInitialized = true;
         
     }
 
@@ -152,6 +154,28 @@ public class MainViewController implements Initializable {
     
         kundvagnbutton.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
         kundvagnbutton.setGraphic(hbox);
+    
+    }
+   
+    
+
+    @FXML
+    private void showSidebar() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("kundvagn_popout.fxml"));
+            Pane sidebar = loader.load();
+            MainViewController controller = loader.getController(); // create the controller variable
+            if (!controller.isInitialized()) { // check if the controller has been initialized before
+                controller.initialize(null, null); // initialize the controller if not
+            }
+            kundvagnsidebar.getChildren().setAll(sidebar);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    
     }
 
+    public boolean isInitialized() {
+        return isInitialized;
+    }
 }
