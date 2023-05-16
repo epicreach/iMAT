@@ -73,7 +73,7 @@
                            <content>
                               <Pane prefHeight="712.0" prefWidth="984.0">
                                  <children>
-                                    <HBox layoutX="72.0" layoutY="41.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
+                                    <HBox fx:id="categoryContainer" layoutX="72.0" layoutY="41.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
                                     <HBox layoutX="72.0" layoutY="218.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;">
                                        <children>
                                           <AnchorPane prefHeight="200.0" prefWidth="200.0">

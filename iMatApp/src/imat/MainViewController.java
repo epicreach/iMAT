@@ -27,6 +27,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -58,6 +59,9 @@ public class MainViewController implements Initializable {
     Button nextItem;
 
     @FXML
+    HBox categoryContainer;
+
+    @FXML
     Button tidigarekopbutton;
     private boolean isInitialized = false;
     @FXML
@@ -77,6 +81,7 @@ public class MainViewController implements Initializable {
     @FXML
     Button tillkassanbutton;
 
+
     int currentIndex = 1;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
@@ -91,6 +96,7 @@ public class MainViewController implements Initializable {
         fontSetter();
 
         imageSetter();
+        load_items();
 
         List<Product> products = iMatDataHandler.getProducts();
        refresh_item(1,products);
@@ -105,6 +111,38 @@ public class MainViewController implements Initializable {
         isInitialized = true;
         
     }
+
+
+
+    public void load_items() {
+        categoryContainer.getChildren().clear();
+        //Kör igenom 7 objekt för tillfället, ska ändras när vi får ordning på kategorierna med filter.
+        for (int i = 1; i < 8; i++) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
+            try {
+                AnchorPane loadedPane = fxmlLoader.load();
+                HBox loadedContainer = new HBox(loadedPane);
+                categoryContainer.getChildren().add(loadedContainer);
+    
+                // Hittar rätt fxid med hjälp av .lookup.
+                ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
+                Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
+                Text produktpris = (Text) loadedPane.lookup("#produktpris");
+                // Hämtar datan om produkt
+                Product item = iMatDataHandler.getProduct(i);
+                Image image = iMatDataHandler.getFXImage(item);
+                String text = item.getName();
+                Double price = item.getPrice();
+                produktpris.setText(price.toString() + " kr");
+                produktnamn.setText(text);
+                produktbild.setImage(image);
+            } catch (IOException exception) {
+                throw new RuntimeException(exception);
+            }
+        }
+    }
+
+
 
     public void refresh_item(int num, List<Product> products){
             //Hämtar in en produkt på ett index
