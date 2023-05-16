@@ -63,7 +63,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     Button tidigarekopbutton;
-    private boolean isInitialized = false;
+   
     @FXML
     Button favoriterbutton;
     @FXML
@@ -108,7 +108,7 @@ public class MainViewController implements Initializable {
             currentIndex = (currentIndex + 1) % products.size();
             refresh_item(currentIndex, products);
         });
-        isInitialized = true;
+       
         
     }
 
@@ -197,23 +197,5 @@ public class MainViewController implements Initializable {
    
     
 
-    @FXML
-    private void showSidebar() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("kundvagn_popout.fxml"));
-            Pane sidebar = loader.load();
-            MainViewController controller = loader.getController(); // create the controller variable
-            if (!controller.isInitialized()) { // check if the controller has been initialized before
-                controller.initialize(null, null); // initialize the controller if not
-            }
-            kundvagnsidebar.getChildren().setAll(sidebar);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     
-    }
-
-    public boolean isInitialized() {
-        return isInitialized;
-    }
 }
