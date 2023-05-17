@@ -91,7 +91,7 @@ public class MainViewController implements Initializable {
 
         String iMatDirectory = iMatDataHandler.imatDirectory();
         
-        Boolean controller;
+        
 
         fontSetter();
 
