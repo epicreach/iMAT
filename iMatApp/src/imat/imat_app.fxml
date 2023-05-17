@@ -45,12 +45,12 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Button fx:id="kundvagnbutton" layoutX="735.0" layoutY="41.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="227.0" text="Kundvagn">
+                  <Button fx:id="kundvagnbutton" layoutX="735.0" layoutY="41.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="41.0" prefWidth="227.0" text="Kundvagn">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
                   </Button>
-                  <Button fx:id="tidigarekopbutton" layoutX="263.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #7DB1FF;" text="Tidigare Köp">
+                  <Button fx:id="tidigarekopbutton" layoutX="263.0" layoutY="95.0" mnemonicParsing="false" onAction="#toggleTidigarekop" prefHeight="45.0" prefWidth="205.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #7DB1FF;" text="Tidigare Köp">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -98,10 +98,60 @@
                         </ScrollPane>
                      </children>
                   </AnchorPane>
-                  <Pane fx:id="kundvagnsidebar" prefHeight="548.0" prefWidth="325.0" />
                </children>
             </StackPane>
          </center>
       </BorderPane>
+      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0" visible="false">
+         <children>
+            <AnchorPane layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;" translateX="598.0" translateY="155.0">
+               <children>
+                  <HBox layoutX="10.0" layoutY="81.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
+                  <Button layoutX="22.0" layoutY="23.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="46.0" prefWidth="157.0" style="-fx-background-color: #7DB1FF;" text="Stäng Varukorg">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <AnchorPane layoutY="431.0" prefHeight="116.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;">
+                     <children>
+                        <Button fx:id="jamforkopvagnbutton" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#toggleTidigarekop" prefHeight="72.0" prefWidth="138.0" style="-fx-background-color: #7DB1FF;" text="Jämför med tidigare köp" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="22.0">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="tillkassanbutton" layoutX="249.0" layoutY="22.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="138.0" style="-fx-background-color: #7DB1FF;" text="Fortsätt till kassan" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="210.0" layoutY="23.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #7DB1FF;" text="Töm Varukorg">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <HBox layoutX="10.0" layoutY="188.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
+                  <HBox layoutX="10.0" layoutY="298.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="tidigarekoppopup" prefHeight="150.0" prefWidth="200.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="450.0" style="-fx-background-color: #FFFFFF;" translateY="155.0">
+               <children>
+                  <HBox layoutX="12.0" layoutY="113.0" prefHeight="116.0" prefWidth="424.0" style="-fx-background-color: #d3d3d3;" AnchorPane.bottomAnchor="317.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="113.0" />
+                  <HBox layoutX="13.0" layoutY="250.0" prefHeight="116.0" prefWidth="424.0" style="-fx-background-color: #d3d3d3;" />
+                  <Button fx:id="stängknapptdgrköp" layoutX="126.0" layoutY="31.0" mnemonicParsing="false" onAction="#toggleTidigarekop" prefHeight="0.0" prefWidth="195.0" style="-fx-background-color: #7DB1FF;" text="Stäng">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Button>
+                  <HBox layoutX="13.0" layoutY="385.0" prefHeight="116.0" prefWidth="424.0" style="-fx-background-color: #d3d3d3;" />
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

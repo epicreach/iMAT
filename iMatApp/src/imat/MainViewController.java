@@ -74,6 +74,8 @@ public class MainViewController implements Initializable {
     HBox categoryTemplate;
     @FXML
     Button kategoriknapp;
+@FXML 
+Pane tidigarekoppopup;
 
     @FXML
     Button jamforkopvagnbutton;
@@ -196,6 +198,13 @@ public class MainViewController implements Initializable {
     }
    
     
-
+    @FXML
+    private void toggleSidebar() {
+        kundvagnsidebar.setVisible(!kundvagnsidebar.isVisible());
+    }
+    @FXML
+    private void toggleTidigarekop() {
+        tidigarekoppopup.setVisible(!tidigarekoppopup.isVisible());
+    }
     
 }
