@@ -3,5 +3,20 @@
       -fx-font-family: 'Futura', sans-serif;
       -fx-font-weight: bold;
   }
+.Bakground {
+    -fx-background-color: rgb(159, 182, 189);}
 
-  
+.Button{
+    -fx-background-color:  #7DB1FF;}
+
+.pay-och-done-button{
+    -fx-background-color: #3eb376;}
+
+.Edit-button{
+    -fx-background-color: rgb(180, 183, 101);}
+.text-bigger{
+        -fx-font-size: 19px;
+        -fx-font-family: 'Futura', sans-serif;
+    }
+.Pop-out-paymentmethod{
+        -fx-background-color: rgb(15, 85, 116);}
