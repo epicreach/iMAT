@@ -18,6 +18,10 @@ import javafx.stage.Stage;
 public class BetalningController implements Initializable{
     @FXML
     Pane kortswish;
+
+    @FXML
+
+    Button föregåendeButton;
    
 
     @Override

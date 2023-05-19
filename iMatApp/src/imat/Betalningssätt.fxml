@@ -19,7 +19,7 @@
    <children>
       <ToolBar prefHeight="46.0" prefWidth="1000.0">
          <items>
-            <Button fx:id="föregåendesida" mnemonicParsing="false" onAction="#goBackiMat" prefHeight="58.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="Föregånde sida">
+            <Button fx:id="föregåendesida" mnemonicParsing="false" onAction="#goBackBetala" prefHeight="58.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="Föregånde sida">
                <graphic>
                   <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,10 +27,10 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <VBox prefHeight="60.0" prefWidth="598.0" />
-            <Button mnemonicParsing="false" onAction="#goBackiMat" prefHeight="50.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="   Hem">
+            <VBox prefHeight="58.0" prefWidth="599.0" />
+            <Button mnemonicParsing="false" onAction="#goBackiMat" prefHeight="58.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="    Hem">
                <graphic>
-                  <ImageView blendMode="MULTIPLY" fitHeight="51.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/Hem.jpg" />
                      </image>
@@ -46,11 +46,11 @@
             <String fx:value="text-bigger" />
          </styleClass>
       </Label>
-      <Label layoutX="200.0" layoutY="530.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Cvv-koden:" />
+      <Label layoutX="200.0" layoutY="530.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="CVV-koden:" />
       <TextField layoutX="500.0" layoutY="389.0" prefHeight="37.0" prefWidth="306.0" />
       <TextField layoutX="500.0" layoutY="457.0" prefHeight="37.0" prefWidth="306.0" />
       <TextField layoutX="500.0" layoutY="525.0" prefHeight="37.0" prefWidth="306.0" />
-      <Button layoutX="613.0" layoutY="600.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="269.0" stylesheets="@imat_app.css" text="Bekräfta och fortsätt          ">
+      <Button layoutX="628.0" layoutY="595.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Bekräfta och fortsätt          ">
          <styleClass>
             <String fx:value="text-bigger" />
             <String fx:value="pay-och-done-button" />
@@ -91,7 +91,7 @@
             <Image url="@resources/Betalningssätt.jpg" />
          </image>
       </ImageView>
-      <ImageView blendMode="MULTIPLY" fitHeight="62.0" fitWidth="53.0" layoutX="823.0" layoutY="605.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" layoutX="843.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Näsa.jpg" />
          </image>
