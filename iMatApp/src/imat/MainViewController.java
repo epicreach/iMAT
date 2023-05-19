@@ -176,9 +176,6 @@ Pane tidigarekoppopup;
         imatLogo.setImage(image);
 
 
-       /*  File profilefile = new File("iMatApp/src/imat/resources/papasmurf.png");
-        Image profilepic = new Image(profilefile.toURI().toString());
-        profilepicture.setImage(profilepic); */
         
         File iconfile = new File("iMatApp/src/imat/resources/263142.png");
         Image iconimage = new Image(iconfile.toURI().toString());
@@ -206,5 +203,30 @@ Pane tidigarekoppopup;
     private void toggleTidigarekop() {
         tidigarekoppopup.setVisible(!tidigarekoppopup.isVisible());
     }
-    
+    @FXML
+    private void openNewPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("profile_scene.fxml"));
+            Parent newPageRoot = loader.load();
+
+            Stage stage = (Stage) profilbutton.getScene().getWindow();
+            stage.setScene(new Scene(newPageRoot));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void openPayment() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Person_uppgifter.fxml"));
+            Parent newPageRoot = loader.load();
+
+            Stage stage = (Stage) profilbutton.getScene().getWindow();
+            stage.setScene(new Scene(newPageRoot));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

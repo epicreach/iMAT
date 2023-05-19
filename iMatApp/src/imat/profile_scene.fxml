@@ -1,17 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.MainViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.ProfileController">
    <children>
-      <Pane layoutX="14.0" layoutY="24.0" prefHeight="490.0" prefWidth="293.0" style="-fx-background-color: #d3d3d3;">
+      <AnchorPane prefHeight="200.0" prefWidth="1002.0">
          <children>
-            <ImageView fx:id="profilepicture" fitHeight="276.0" fitWidth="288.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane prefHeight="155.0" prefWidth="1000.0" style="-fx-background-color: #D3D3D3;">
+               <children>
+                  <ImageView fx:id="imatLogo" fitHeight="204.0" fitWidth="256.0" layoutX="14.0" layoutY="-40.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/iMAT.png" />
+                     </image>
+                  </ImageView>
+                  <TextField layoutX="253.0" layoutY="43.0" prefHeight="43.0" prefWidth="466.0" promptText="Sök">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="kategoriknapp" layoutX="30.0" layoutY="95.0" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="194.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #7DB1FF;" text="Kategorier">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="favoriterbutton" layoutX="746.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #7DB1FF;" text="Favoriter">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="profilbutton" layoutX="504.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #5D87C5;" text="Profil">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="kundvagnbutton" layoutX="735.0" layoutY="41.0" mnemonicParsing="false" onAction="#goBack" prefHeight="41.0" prefWidth="227.0" text="Kundvagn">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="tidigarekopbutton" layoutX="263.0" layoutY="95.0" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="205.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #7DB1FF;" text="Tidigare Köp">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="659.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Levereras Tidigast: Fredag 11:15">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="29.0" layoutY="175.0" prefHeight="490.0" prefWidth="293.0" style="-fx-background-color: #d3d3d3;">
+         <children>
+            <ImageView fx:id="profilepicture" fitHeight="276.0" fitWidth="298.0" pickOnBounds="true" preserveRatio="true" />
             <Text layoutX="51.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Papa Smurf" textAlignment="CENTER" wrappingWidth="191.903076171875">
                <font>
                   <Font name="System Bold" size="34.0" />
@@ -29,9 +79,9 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="402.0" layoutY="24.0" prefHeight="490.0" prefWidth="566.0" style="-fx-background-color: #d3d3d3;">
+      <Pane layoutX="417.0" layoutY="175.0" prefHeight="490.0" prefWidth="566.0" style="-fx-background-color: #d3d3d3;">
          <children>
-            <Text layoutX="14.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn: Papa Smurf">
+            <Text layoutX="14.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn: Papa Smurf">
                <font>
                   <Font size="35.0" />
                </font>
@@ -51,7 +101,7 @@
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button layoutX="472.0" layoutY="47.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: #7DB1FF;" text="Ändra">
+            <Button layoutX="472.0" layoutY="55.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="86.0" style="-fx-background-color: #7DB1FF;" text="Ändra">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font></Button>

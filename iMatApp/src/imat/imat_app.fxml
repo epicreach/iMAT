@@ -40,7 +40,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Button fx:id="profilbutton" layoutX="504.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #7DB1FF;" text="Profil">
+                  <Button fx:id="profilbutton" layoutX="504.0" layoutY="95.0" mnemonicParsing="false" onAction="#openNewPage" prefHeight="45.0" prefWidth="205.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #7DB1FF;" text="Profil">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -119,7 +119,7 @@
                               <Font name="System Bold" size="19.0" />
                            </font>
                         </Button>
-                        <Button fx:id="tillkassanbutton" layoutX="249.0" layoutY="22.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="138.0" style="-fx-background-color: #7DB1FF;" text="Fortsätt till kassan" textAlignment="CENTER" wrapText="true">
+                        <Button fx:id="tillkassanbutton" layoutX="249.0" layoutY="22.0" mnemonicParsing="false" onAction="#openPayment" prefHeight="72.0" prefWidth="138.0" style="-fx-background-color: #7DB1FF;" text="Fortsätt till kassan" textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="System Bold" size="19.0" />
                            </font>

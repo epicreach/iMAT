@@ -8,15 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="120.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="produktbild" fitHeight="92.0" fitWidth="129.0" layoutX="-5.0" pickOnBounds="true" preserveRatio="true" />
       <Pane layoutY="92.0" prefHeight="58.0" prefWidth="120.0" style="-fx-background-color: #d3d3d3;">
          <children>
-            <Button fx:id="laggtillknaop" layoutX="54.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-color: #7DB1FF;" text="Lägg Till">
+            <Button fx:id="laggtillknaop" layoutX="45.0" layoutY="24.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="73.0" style="-fx-background-color: #7DB1FF;" text="Lägg Till">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="13.0" />
                </font>
             </Button>
             <Label fx:id="produktnamn" layoutX="3.0" layoutY="7.0" prefHeight="20.0" prefWidth="110.0" text="{name}" textAlignment="CENTER">

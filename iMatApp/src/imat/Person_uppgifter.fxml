@@ -14,11 +14,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="999.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="999.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.PersonUppgifterController">
    <children>
       <ToolBar prefHeight="46.0" prefWidth="1000.0">
          <items>
-            <Button fx:id="föregåendesida" mnemonicParsing="false" prefHeight="45.0" prefWidth="178.0" styleClass="Button" stylesheets="@imat_app.css" text="Föregånde sida">
+            <Button fx:id="frgndbutton" mnemonicParsing="false" onAction="#goBack" prefHeight="45.0" prefWidth="178.0" styleClass="Button" stylesheets="@imat_app.css" text="Föregånde sida">
                <graphic>
                   <ImageView blendMode="MULTIPLY" fitHeight="37.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -27,7 +27,7 @@
                   </ImageView>
                </graphic></Button>
             <VBox prefHeight="50.0" prefWidth="607.0" />
-            <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="    Hem">
+            <Button fx:id="hembutton" mnemonicParsing="false" onAction="#goBack" prefHeight="49.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="    Hem">
                <graphic>
                   <ImageView blendMode="MULTIPLY" fitHeight="42.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -37,7 +37,7 @@
                </graphic></Button>
          </items>
       </ToolBar>
-      <Label fx:id="hembutton" layoutX="200.0" layoutY="326.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Adress:" />
+      <Label layoutX="200.0" layoutY="326.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Adress:" />
       <Label layoutX="200.0" layoutY="462.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Mailadress:" />
       <Label layoutX="200.0" layoutY="394.0" prefHeight="28.0" prefWidth="127.0" stylesheets="@imat_app.css" text="Postnummer:">
          <styleClass>
@@ -49,20 +49,20 @@
       <TextField layoutX="500.0" layoutY="389.0" prefHeight="37.0" prefWidth="306.0" />
       <TextField layoutX="500.0" layoutY="457.0" prefHeight="37.0" prefWidth="306.0" />
       <TextField layoutX="500.0" layoutY="525.0" prefHeight="37.0" prefWidth="306.0" />
-      <Button layoutX="628.0" layoutY="600.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Bekräfta och fortsätt          ">
+      <Button fx:id="nastasida" layoutX="628.0" layoutY="600.0" mnemonicParsing="false" onAction="#openNewPage" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Bekräfta och fortsätt          ">
          <styleClass>
             <String fx:value="text-bigger" />
             <String fx:value="pay-och-done-button" />
          </styleClass>
       </Button>
       <TextField layoutX="500.0" layoutY="321.0" prefHeight="37.0" prefWidth="306.0" />
-      <Text layoutX="257.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Person uppgifter " underline="true" />
+      <Text layoutX="257.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter " underline="true" />
       <Circle fill="#bcc9d4" layoutX="505.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Separator layoutX="372.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
       <Separator layoutX="541.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
       <Text layoutX="446.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Betalningssätt" />
       <Circle fill="#bcc9d4" layoutX="676.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
-      <Text layoutX="625.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="leveransdetaljer" />
+      <Text layoutX="625.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leveransdetaljer" />
       <Label layoutX="199.0" layoutY="263.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="För- och efternamn" />
       <ImageView blendMode="MULTIPLY" fitHeight="36.0" fitWidth="46.0" layoutX="658.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -84,7 +84,7 @@
          </image>
       </ImageView>
       <TextField layoutX="500.0" layoutY="258.0" prefHeight="37.0" prefWidth="306.0" />
-      <ImageView blendMode="MULTIPLY" fitHeight="71.0" fitWidth="59.0" layoutX="832.0" layoutY="606.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView blendMode="MULTIPLY" fitHeight="50.0" fitWidth="46.0" layoutX="839.0" layoutY="613.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Näsa.jpg" />
          </image>

@@ -15,11 +15,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="999.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="693.0" prefWidth="999.0" stylesheets="@imat_app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="imat.BetalningController">
    <children>
       <ToolBar prefHeight="46.0" prefWidth="1000.0">
          <items>
-            <Button fx:id="föregåendesida" mnemonicParsing="false" prefHeight="58.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="Föregånde sida">
+            <Button fx:id="föregåendesida" mnemonicParsing="false" onAction="#goBackiMat" prefHeight="58.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="Föregånde sida">
                <graphic>
                   <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -28,7 +28,7 @@
                   </ImageView>
                </graphic></Button>
             <VBox prefHeight="60.0" prefWidth="598.0" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="   Hem">
+            <Button mnemonicParsing="false" onAction="#goBackiMat" prefHeight="50.0" prefWidth="186.0" styleClass="Button" stylesheets="@imat_app.css" text="   Hem">
                <graphic>
                   <ImageView blendMode="MULTIPLY" fitHeight="51.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -57,16 +57,16 @@
          </styleClass>
       </Button>
       <TextField layoutX="500.0" layoutY="321.0" prefHeight="37.0" prefWidth="306.0" />
-      <Text layoutX="257.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Person uppgifter " />
+      <Text layoutX="257.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter " />
       <Circle fill="#bcc9d4" layoutX="338.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Separator layoutX="373.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
       <Separator layoutX="541.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
       <Text layoutX="446.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Betalningssätt" underline="true" />
       <Circle fill="#bcc9d4" layoutX="676.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
-      <Text layoutX="625.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="leveransdetaljer" />
+      <Text layoutX="625.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leveransdetaljer" />
       <Label layoutX="199.0" layoutY="263.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Valt betalningssätt:" />
       <RadioButton layoutX="500.0" layoutY="251.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="69.0" text="Kort" />
-      <Button layoutX="586.0" layoutY="250.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="212.0" styleClass="Button" stylesheets="@imat_app.css" text="Ändra betalningssätt      " />
+      <Button fx:id="andrabetalningbutton" layoutX="586.0" layoutY="250.0" mnemonicParsing="false" onAction="#togglekortswish" prefHeight="46.0" prefWidth="212.0" styleClass="Button" stylesheets="@imat_app.css" text="Ändra betalningssätt      " />
       <ImageView blendMode="MULTIPLY" fitHeight="36.0" fitWidth="36.0" layoutX="762.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Edit_icon.jpg" />
@@ -96,11 +96,11 @@
             <Image url="@resources/Näsa.jpg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="200.0" layoutY="157.0" prefHeight="402.0" prefWidth="609.0" styleClass="Pop-out-paymentmethod" stylesheets="@imat_app.css">
+      <AnchorPane fx:id="kortswish" layoutX="200.0" layoutY="157.0" prefHeight="402.0" prefWidth="609.0" styleClass="Pop-out-paymentmethod" stylesheets="@imat_app.css" visible="false">
          <children>
-            <Label layoutX="140.0" layoutY="21.0" prefHeight="54.0" prefWidth="314.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Var vänlig välje ett betalningssätt:" textFill="#fcf6f6" />
-            <Button layoutX="557.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" />
-            <ImageView blendMode="MULTIPLY" fitHeight="60.0" fitWidth="53.0" layoutX="557.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+            <Label layoutX="140.0" layoutY="21.0" prefHeight="54.0" prefWidth="314.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Var vänlig välj ett betalningssätt:" textFill="#fcf6f6" />
+            <Button layoutX="557.0" mnemonicParsing="false" onAction="#togglekortswish" prefHeight="53.0" prefWidth="53.0" />
+            <ImageView blendMode="MULTIPLY" fitHeight="60.0" fitWidth="53.0" layoutX="557.0" layoutY="1.0" onMouseClicked="#togglekortswish" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/th.jpg" />
                </image>
