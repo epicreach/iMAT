@@ -102,8 +102,8 @@
             <Button layoutX="394.0" layoutY="54.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="141.0" text="14:00-15:00" />
             <Button layoutX="221.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="141.0" text="12:00-13:00" />
             <Button layoutX="221.0" layoutY="238.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="141.0" text="13:00-14:00" />
-            <Button layoutX="394.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="141.0" text="16:00-17:00" />
-            <Button layoutX="394.0" layoutY="238.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="141.0" text="15:00-16:00" />
+            <Button layoutX="394.0" layoutY="238.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="141.0" text="16:00-17:00" />
+            <Button layoutX="394.0" layoutY="146.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="141.0" text="15:00-16:00" />
          </children>
       </AnchorPane>
    </children>

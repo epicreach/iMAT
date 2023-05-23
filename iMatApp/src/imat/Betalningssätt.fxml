@@ -50,7 +50,7 @@
       <TextField layoutX="500.0" layoutY="389.0" prefHeight="37.0" prefWidth="306.0" />
       <TextField layoutX="500.0" layoutY="457.0" prefHeight="37.0" prefWidth="306.0" />
       <TextField layoutX="500.0" layoutY="525.0" prefHeight="37.0" prefWidth="306.0" />
-      <Button layoutX="628.0" layoutY="595.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Bekräfta och fortsätt          ">
+      <Button layoutX="628.0" layoutY="595.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Bekräfta och betala  ">
          <styleClass>
             <String fx:value="text-bigger" />
             <String fx:value="pay-och-done-button" />
@@ -91,18 +91,13 @@
             <Image url="@resources/Betalningssätt.jpg" />
          </image>
       </ImageView>
-      <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" layoutX="843.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resources/Näsa.jpg" />
-         </image>
-      </ImageView>
       <AnchorPane fx:id="kortswish" layoutX="200.0" layoutY="157.0" prefHeight="402.0" prefWidth="609.0" styleClass="Pop-out-paymentmethod" stylesheets="@imat_app.css" visible="false">
          <children>
             <Label layoutX="140.0" layoutY="21.0" prefHeight="54.0" prefWidth="314.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Var vänlig välj ett betalningssätt:" textFill="#fcf6f6" />
             <Button layoutX="557.0" mnemonicParsing="false" onAction="#togglekortswish" prefHeight="53.0" prefWidth="53.0" />
             <ImageView blendMode="MULTIPLY" fitHeight="60.0" fitWidth="53.0" layoutX="557.0" layoutY="1.0" onMouseClicked="#togglekortswish" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@resources/th.jpg" />
+                  <Image url="@resources/Close.jpg" />
                </image>
             </ImageView>
             <Button layoutX="489.0" layoutY="322.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="91.0" stylesheets="@imat_app.css" text="Klar">
@@ -123,6 +118,23 @@
                   <Image url="@resources/Swish.jpg" />
                </image>
             </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="200.0" layoutY="157.0" prefHeight="402.0" prefWidth="609.0" styleClass="Pop-out-paymentmethod" stylesheets="@imat_app.css">
+         <children>
+            <Label layoutX="167.0" layoutY="54.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Tack för att du handlar hos oss" textFill="#f7f1f1" />
+            <ImageView fitHeight="112.0" fitWidth="123.0" layoutX="249.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/th.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="127.0" layoutY="247.0" prefHeight="53.0" prefWidth="403.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="En bekräftelse har skickats till ditt mailadress" textFill="#f7f1f1" />
+            <Button layoutX="224.0" layoutY="301.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="174.0" stylesheets="@imat_app.css" text="Fortsätt handla" textFill="#e1e1e1">
+               <styleClass>
+                  <String fx:value="text-bigger" />
+                  <String fx:value="pay-och-done-button" />
+               </styleClass>
+            </Button>
          </children>
       </AnchorPane>
    </children>
