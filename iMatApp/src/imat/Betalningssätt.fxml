@@ -2,8 +2,8 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
@@ -11,6 +11,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
@@ -38,26 +40,42 @@
                </graphic></Button>
          </items>
       </ToolBar>
-      <Label fx:id="hembutton" layoutX="200.0" layoutY="326.0" prefHeight="28.0" prefWidth="200.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Namn på kort ägaren:" />
-      <Label layoutX="200.0" layoutY="462.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Giltighetsdatum:" />
-      <Label layoutX="200.0" layoutY="394.0" prefHeight="28.0" prefWidth="127.0" stylesheets="@imat_app.css" text="Kortnummer:">
-         <styleClass>
-            <String fx:value="textal" />
-            <String fx:value="text-bigger" />
-         </styleClass>
-      </Label>
-      <Label layoutX="200.0" layoutY="530.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="CVV-koden:" />
-      <TextField layoutX="500.0" layoutY="389.0" prefHeight="37.0" prefWidth="306.0" />
-      <TextField layoutX="500.0" layoutY="457.0" prefHeight="37.0" prefWidth="306.0" />
-      <TextField layoutX="500.0" layoutY="525.0" prefHeight="37.0" prefWidth="306.0" />
-      <Button layoutX="628.0" layoutY="595.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Bekräfta och betala  ">
+      <StackPane layoutY="70.0" prefHeight="624.0" prefWidth="934.0" />
+      <StackPane layoutY="73.0" prefHeight="614.0" prefWidth="934.0">
+         <children>
+            <Pane fx:id="swishPane" prefHeight="316.0" prefWidth="411.0">
+               <children>
+<Label layoutX="223.0" layoutY="249.0" styleClass="text-bigger" text="Telefonnummer:" />
+                  <TextField fx:id="swishmobileTextField" layoutX="500.0" layoutY="245.0" prefHeight="36.0" prefWidth="306.0" />
+               </children>
+            </Pane>
+            <Pane fx:id="kortPane" prefHeight="200.0" prefWidth="200.0" visible="false">
+               <children>
+                  <TextField fx:id="expmonthTextField" layoutX="499.0" layoutY="431.0" prefHeight="37.0" prefWidth="72.0" promptText="Månad" />
+                  <Label fx:id="hembutton" layoutX="178.0" layoutY="247.0" prefHeight="28.0" prefWidth="200.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Namn på kort ägaren:" />
+                  <Label layoutX="220.0" layoutY="436.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Giltighetsdatum:" />
+                  <Label layoutX="243.0" layoutY="370.0" prefHeight="28.0" prefWidth="127.0" stylesheets="@imat_app.css" text="Kortnummer:">
+                     <styleClass>
+                        <String fx:value="textal" />
+                        <String fx:value="text-bigger" />
+                     </styleClass>
+                  </Label>
+                  <Label layoutX="264.0" layoutY="311.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="CVV-koden:" />
+                  <TextField fx:id="cardnrTextField" layoutX="499.0" layoutY="366.0" prefHeight="37.0" prefWidth="306.0" />
+                  <TextField fx:id="cvvTextField" layoutX="499.0" layoutY="306.0" prefHeight="37.0" prefWidth="306.0" />
+                  <TextField fx:id="expyearTextField" layoutX="587.0" layoutY="431.0" prefHeight="37.0" prefWidth="72.0" promptText="År" />
+                  <TextField fx:id="cardOwnerTextField" layoutX="499.0" layoutY="243.0" prefHeight="37.0" prefWidth="306.0" />
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+      <Button fx:id="fortsattknapp" layoutX="628.0" layoutY="595.0" mnemonicParsing="false" onAction="#goLeverans" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Bekräfta och fortsätt          ">
          <styleClass>
             <String fx:value="text-bigger" />
             <String fx:value="pay-och-done-button" />
          </styleClass>
       </Button>
-      <TextField layoutX="500.0" layoutY="321.0" prefHeight="37.0" prefWidth="306.0" />
-      <Text layoutX="274.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter " />
+      <Text layoutX="257.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter " />
       <Circle fill="#bcc9d4" layoutX="338.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Separator layoutX="373.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
       <Separator layoutX="541.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
@@ -65,13 +83,6 @@
       <Circle fill="#bcc9d4" layoutX="676.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Text layoutX="625.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leveransdetaljer" />
       <Label layoutX="199.0" layoutY="263.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Valt betalningssätt:" />
-      <RadioButton layoutX="500.0" layoutY="251.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="69.0" text="Kort" />
-      <Button fx:id="andrabetalningbutton" layoutX="586.0" layoutY="250.0" mnemonicParsing="false" onAction="#togglekortswish" prefHeight="46.0" prefWidth="212.0" styleClass="Button" stylesheets="@imat_app.css" text="Ändra betalningssätt      " />
-      <ImageView blendMode="MULTIPLY" fitHeight="36.0" fitWidth="36.0" layoutX="762.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@resources/Edit_icon.jpg" />
-         </image>
-      </ImageView>
       <ImageView blendMode="MULTIPLY" fitHeight="36.0" fitWidth="36.0" layoutX="323.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Personuppgifter.jpg" />
@@ -91,52 +102,12 @@
             <Image url="@resources/Betalningssätt.jpg" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="kortswish" layoutX="200.0" layoutY="157.0" prefHeight="402.0" prefWidth="609.0" styleClass="Pop-out-paymentmethod" stylesheets="@imat_app.css" visible="false">
-         <children>
-            <Label layoutX="140.0" layoutY="21.0" prefHeight="54.0" prefWidth="314.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Var vänlig välj ett betalningssätt:" textFill="#fcf6f6" />
-            <Button layoutX="557.0" mnemonicParsing="false" onAction="#togglekortswish" prefHeight="53.0" prefWidth="53.0" />
-            <ImageView blendMode="MULTIPLY" fitHeight="60.0" fitWidth="53.0" layoutX="557.0" layoutY="1.0" onMouseClicked="#togglekortswish" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/Close.jpg" />
-               </image>
-            </ImageView>
-            <Button layoutX="489.0" layoutY="322.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="91.0" stylesheets="@imat_app.css" text="Klar">
-               <styleClass>
-                  <String fx:value="pay-button" />
-                  <String fx:value="text-bigger" />
-               </styleClass>
-            </Button>
-            <Button layoutX="174.0" layoutY="121.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="230.0" text="Kort" />
-            <ImageView fitHeight="73.0" fitWidth="81.0" layoutX="174.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/Kort.jpg" />
-               </image>
-            </ImageView>
-            <Button layoutX="174.0" layoutY="241.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="230.0" text="Swish" />
-            <ImageView blendMode="MULTIPLY" fitHeight="62.0" fitWidth="60.0" layoutX="174.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/Swish.jpg" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="200.0" layoutY="157.0" prefHeight="402.0" prefWidth="609.0" styleClass="Pop-out-paymentmethod" stylesheets="@imat_app.css">
-         <children>
-            <Label layoutX="167.0" layoutY="54.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Tack för att du handlar hos oss" textFill="#f7f1f1" />
-            <ImageView fitHeight="112.0" fitWidth="123.0" layoutX="249.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@resources/th.jpg" />
-               </image>
-            </ImageView>
-            <Label layoutX="127.0" layoutY="247.0" prefHeight="53.0" prefWidth="403.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="En bekräftelse har skickats till ditt mailadress" textFill="#f7f1f1" />
-            <Button layoutX="224.0" layoutY="301.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="174.0" stylesheets="@imat_app.css" text="Fortsätt handla" textFill="#e1e1e1">
-               <styleClass>
-                  <String fx:value="text-bigger" />
-                  <String fx:value="pay-och-done-button" />
-               </styleClass>
-            </Button>
-         </children>
-      </AnchorPane>
+      <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" layoutX="843.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/Näsa.jpg" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="kortcombobox" layoutX="500.0" layoutY="258.0" prefHeight="37.0" prefWidth="306.0" visibleRowCount="2" AnchorPane.bottomAnchor="397.4" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="192.60000000000002" AnchorPane.topAnchor="258.0" />
    </children>
    <styleClass>
       <String fx:value="text-normal" />

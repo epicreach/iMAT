@@ -129,6 +129,19 @@ public class BetalningController implements Initializable{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("imat_app.fxml"));
             Parent mainViewRoot = loader.load();
+            
+            Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+            stage.setScene(new Scene(mainViewRoot));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void goLeverans(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Leveransdetaljer.fxml"));
+            Parent mainViewRoot = loader.load();
 
             Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
             stage.setScene(new Scene(mainViewRoot));
