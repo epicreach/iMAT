@@ -46,17 +46,17 @@
          </styleClass>
       </Label>
       <Label layoutX="200.0" layoutY="530.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Telefonnummer:" />
-      <TextField fx:id="postTextField" layoutX="500.0" layoutY="389.0" prefHeight="37.0" prefWidth="306.0" />
-      <TextField fx:id="emailTextField" layoutX="500.0" layoutY="457.0" prefHeight="37.0" prefWidth="306.0" />
-      <TextField fx:id="mobilTextField" layoutX="500.0" layoutY="525.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField layoutX="500.0" layoutY="389.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField layoutX="500.0" layoutY="457.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField layoutX="500.0" layoutY="525.0" prefHeight="37.0" prefWidth="306.0" />
       <Button fx:id="nastasida" layoutX="628.0" layoutY="595.0" mnemonicParsing="false" onAction="#openNewPage" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Bekräfta och fortsätt          ">
          <styleClass>
             <String fx:value="text-bigger" />
             <String fx:value="pay-och-done-button" />
          </styleClass>
       </Button>
-      <TextField fx:id="adressTextField" layoutX="500.0" layoutY="321.0" prefHeight="37.0" prefWidth="306.0" />
-      <Text layoutX="257.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter " underline="true" />
+      <TextField layoutX="500.0" layoutY="321.0" prefHeight="37.0" prefWidth="306.0" />
+      <Text layoutX="274.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter " underline="true" />
       <Circle fill="#bcc9d4" layoutX="505.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Separator layoutX="372.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
       <Separator layoutX="541.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
@@ -83,7 +83,7 @@
             <Image url="@resources/Betalningssätt.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="namnTextField" layoutX="500.0" layoutY="258.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField layoutX="500.0" layoutY="258.0" prefHeight="37.0" prefWidth="306.0" />
       <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" layoutX="843.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Näsa.jpg" />
