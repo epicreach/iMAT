@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +13,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 public class BetalningController implements Initializable{
     @FXML
@@ -22,11 +25,12 @@ public class BetalningController implements Initializable{
     @FXML
 
     Button föregåendeButton;
-   
-
+    @FXML
+    ComboBox kortcombobox;
+    IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        kortcombobox.setItems(FXCollections.observableArrayList("Kort","Swish"));
     }
 
     @FXML

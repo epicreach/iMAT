@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import se.chalmers.cse.dat216.project.Customer;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -36,7 +38,11 @@ public class iMatApp extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
     }
-    
+    @Override
+    public void stop(){
+        IMatDataHandler.getInstance().shutDown();
+    }
 }
 

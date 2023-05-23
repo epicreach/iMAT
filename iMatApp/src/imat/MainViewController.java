@@ -16,6 +16,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -31,6 +32,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 import javafx.scene.paint.Color;
@@ -42,7 +44,7 @@ public class MainViewController implements Initializable {
     ImageView imatLogo;
     @FXML
     Button kundvagnbutton;
-
+    
     @FXML
     ImageView profilepicture;
     
@@ -63,7 +65,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     Button tidigarekopbutton;
-   
+    
     @FXML
     Button favoriterbutton;
     @FXML
@@ -94,9 +96,9 @@ Pane tidigarekoppopup;
         String iMatDirectory = iMatDataHandler.imatDirectory();
         
         
-
+        
         fontSetter();
-
+        
         imageSetter();
         load_items();
 
