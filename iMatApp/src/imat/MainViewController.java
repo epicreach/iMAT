@@ -231,4 +231,8 @@ Pane tidigarekoppopup;
             e.printStackTrace();
         }
     }
+public void resetToStart(){
+iMatDataHandler.reset();
+ }
+
 }

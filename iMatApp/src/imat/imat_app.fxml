@@ -89,7 +89,14 @@
                                           </AnchorPane>
                                        </children>
                                     </HBox>
-                                    <HBox layoutX="72.0" layoutY="390.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
+                                    <HBox layoutX="72.0" layoutY="390.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#resetToStart" prefHeight="52.0" prefWidth="96.0" style="-fx-background-color: red;" text="RESET">
+                                             <font>
+                                                <Font name="System Bold" size="22.0" />
+                                             </font>
+                                          </Button>
+                                       </children></HBox>
                                     <HBox layoutX="72.0" layoutY="554.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" />
                                  </children>
