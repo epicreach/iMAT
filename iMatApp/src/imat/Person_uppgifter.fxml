@@ -84,7 +84,7 @@
          </image>
       </ImageView>
       <TextField fx:id="namnTextField" layoutX="500.0" layoutY="258.0" prefHeight="37.0" prefWidth="306.0" />
-      <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" layoutX="843.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" layoutX="843.0" layoutY="608.0" onMouseClicked="#openNewPage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Näsa.jpg" />
          </image>
