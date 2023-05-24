@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -67,37 +66,13 @@
             <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="402.0" StackPane.alignment="CENTER_RIGHT" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="1000.0">
                      <children>
                         <ScrollPane prefHeight="542.0" prefWidth="1000.0">
                            <content>
-                              <Pane prefHeight="712.0" prefWidth="984.0">
+                              <Pane prefHeight="2222.0" prefWidth="984.0">
                                  <children>
-                                    <HBox fx:id="categoryContainer" layoutX="72.0" layoutY="41.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
-                                    <HBox layoutX="72.0" layoutY="218.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;">
-                                       <children>
-                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                             <children>
-                                                <Label fx:id="productName" layoutX="72.0" text="Testtext">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
-                                                <Button fx:id="nextItem" layoutX="75.0" layoutY="126.0" mnemonicParsing="false" text="Nästa" />
-                                                <ImageView fx:id="pictureID" fitHeight="105.0" fitWidth="169.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
-                                             </children>
-                                          </AnchorPane>
-                                       </children>
-                                    </HBox>
-                                    <HBox layoutX="72.0" layoutY="390.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;">
-                                       <children>
-                                          <Button mnemonicParsing="false" onAction="#resetToStart" prefHeight="52.0" prefWidth="96.0" style="-fx-background-color: red;" text="RESET">
-                                             <font>
-                                                <Font name="System Bold" size="22.0" />
-                                             </font>
-                                          </Button>
-                                       </children></HBox>
-                                    <HBox layoutX="72.0" layoutY="554.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
+                                    <HBox fx:id="categoryContainer" layoutX="72.0" layoutY="41.0" prefHeight="2174.0" prefWidth="840.0" spacing="20.0" style="-fx-background-color: #d3d3d3;" />
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0" />
                                  </children>
                               </Pane>

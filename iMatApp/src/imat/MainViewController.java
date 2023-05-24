@@ -4,8 +4,6 @@ package imat;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.awt.event.ActionEvent;
-import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.io.IOException;
 
@@ -16,7 +14,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -25,17 +22,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
-import javafx.scene.paint.Color;
 
 
 public class MainViewController implements Initializable {
@@ -51,8 +43,7 @@ public class MainViewController implements Initializable {
     @FXML
     BorderPane mainID;
 
-    @FXML
-    ImageView pictureID;
+  
 
     @FXML
     Label productName;
@@ -103,15 +94,6 @@ Pane tidigarekoppopup;
         load_items();
 
         List<Product> products = iMatDataHandler.getProducts();
-       refresh_item(1,products);
-
-        //categoryTemplate.setSpacing(50);
-
-        //Template setOnAction-funktion
-        nextItem.setOnAction(event -> {
-            currentIndex = (currentIndex + 1) % products.size();
-            refresh_item(currentIndex, products);
-        });
        
         
     }
@@ -121,46 +103,46 @@ Pane tidigarekoppopup;
     public void load_items() {
         categoryContainer.getChildren().clear();
         //Kör igenom 7 objekt för tillfället, ska ändras när vi får ordning på kategorierna med filter.
-        for (int i = 1; i < 8; i++) {
+        for (int i = 1; i < 5; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
             try {
                 AnchorPane loadedPane = fxmlLoader.load();
                 HBox loadedContainer = new HBox(loadedPane);
+               
                 categoryContainer.getChildren().add(loadedContainer);
-    
+        
+                // Set alignment of the loadedContainer to center
+                loadedContainer.setAlignment(Pos.TOP_LEFT);
+        
                 // Hittar rätt fxid med hjälp av .lookup.
                 ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
                 Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
                 Text produktpris = (Text) loadedPane.lookup("#produktpris");
+                
                 // Hämtar datan om produkt
                 Product item = iMatDataHandler.getProduct(i);
                 Image image = iMatDataHandler.getFXImage(item);
                 String text = item.getName();
                 Double price = item.getPrice();
+                
                 produktpris.setText(price.toString() + " kr");
                 produktnamn.setText(text);
                 produktbild.setImage(image);
+                produktbild.setPreserveRatio(true);
+                produktbild.setFitWidth(200);
+                produktbild.setFitHeight(137);
+                
             } catch (IOException exception) {
                 throw new RuntimeException(exception);
             }
         }
-    }
-
-
-
-    public void refresh_item(int num, List<Product> products){
-            //Hämtar in en produkt på ett index
-            Product item = iMatDataHandler.getProduct(num);
-            //Laddar in bilden
-            Image image = iMatDataHandler.getFXImage(item);
-            //Sätter bilden till den inladdade
-            pictureID.setImage(image);
-            //Sätter texten till produktens namn
-            String text = item.getName();
-            productName.setText(text);
-
+        
         
     }
+
+
+
+  
 
     public void fontSetter(){
         Font font = Font.font("Verdana Pro Black", FontWeight.BOLD, 20);
