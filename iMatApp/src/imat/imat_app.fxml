@@ -154,7 +154,7 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0">
+      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0" visible="false">
          <children>
             <AnchorPane layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;" translateX="598.0" translateY="155.0">
                <children>
