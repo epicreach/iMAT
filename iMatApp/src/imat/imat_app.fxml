@@ -154,17 +154,16 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0" visible="false">
+      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0">
          <children>
-            <AnchorPane layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;" translateX="598.0" translateY="155.0">
+            <AnchorPane layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="461.0" style="-fx-background-color: #FFFFFF;" translateX="540.0" translateY="155.0">
                <children>
-                  <HBox layoutX="10.0" layoutY="81.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
-                  <Button layoutX="22.0" layoutY="23.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="46.0" prefWidth="157.0" style="-fx-background-color: #7DB1FF;" text="Stäng Varukorg">
+                  <Button layoutX="16.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="46.0" prefWidth="157.0" style="-fx-background-color: #7DB1FF;" text="Stäng Varukorg">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <AnchorPane layoutY="431.0" prefHeight="116.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;">
+                  <AnchorPane layoutY="431.0" prefHeight="116.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;" translateX="30.0">
                      <children>
                         <Button fx:id="jamforkopvagnbutton" layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#toggleTidigarekop" prefHeight="72.0" prefWidth="138.0" style="-fx-background-color: #7DB1FF;" text="Jämför med tidigare köp" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="22.0">
                            <font>
@@ -178,7 +177,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Button layoutX="210.0" layoutY="23.0" mnemonicParsing="false" onAction="#clearShopping" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #7DB1FF;" text="Töm Varukorg">
+                  <Button layoutX="281.0" layoutY="14.0" mnemonicParsing="false" onAction="#clearShopping" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #7DB1FF;" text="Töm Varukorg">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -187,11 +186,11 @@
                   <HBox layoutX="10.0" layoutY="298.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
                 <AnchorPane layoutX="8.0" layoutY="71.0" minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="382.0">
                      <children>
-                        <ScrollPane prefHeight="326.0" prefWidth="382.0">
+                        <ScrollPane prefHeight="326.0" prefWidth="450.0">
                            <content>
-                              <Pane prefHeight="327.0" prefWidth="384.0">
+                              <Pane prefHeight="2000.0" prefWidth="366.0">
                                  <children>
-                                    <FlowPane fx:id="cartContainer" layoutX="11.0" layoutY="34.0" prefHeight="227.0" prefWidth="344.0" />
+                                    <FlowPane fx:id="cartContainer" hgap="5.0" layoutY="6.0" prefHeight="227.0" prefWidth="434.0" prefWrapLength="200.0" vgap="7.0" />
                                  </children>
                               </Pane>
                            </content>

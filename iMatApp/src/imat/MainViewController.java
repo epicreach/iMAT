@@ -173,8 +173,8 @@ Pane tidigarekoppopup;
                 
                 FlowPane loadedContainer = new FlowPane(loadedPane);
                 loadedContainer.setAlignment(Pos.TOP_LEFT);
-                loadedContainer.setPrefWidth(200);
-                loadedContainer.setHgap(3);
+                loadedContainer.setPrefWidth(201);
+                
 
 
                 cartContainer.getChildren().add(loadedContainer);
