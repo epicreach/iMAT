@@ -20,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
@@ -43,7 +44,8 @@ public class MainViewController implements Initializable {
     @FXML
     BorderPane mainID;
 
-  
+  @FXML
+  AnchorPane kategorifilter;
 
     @FXML
     Label productName;
@@ -52,7 +54,7 @@ public class MainViewController implements Initializable {
     Button nextItem;
 
     @FXML
-    HBox categoryContainer;
+    FlowPane categoryContainer;
 
     @FXML
     Button tidigarekopbutton;
@@ -103,17 +105,18 @@ Pane tidigarekoppopup;
     public void load_items() {
         categoryContainer.getChildren().clear();
         //Kör igenom 7 objekt för tillfället, ska ändras när vi får ordning på kategorierna med filter.
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 155; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
             try {
                 AnchorPane loadedPane = fxmlLoader.load();
-                HBox loadedContainer = new HBox(loadedPane);
+                FlowPane loadedContainer = new FlowPane(loadedPane);
                
                 categoryContainer.getChildren().add(loadedContainer);
         
                 // Set alignment of the loadedContainer to center
                 loadedContainer.setAlignment(Pos.TOP_LEFT);
-        
+                loadedContainer.setPrefWidth(200);
+                loadedContainer.setHgap(3);
                 // Hittar rätt fxid med hjälp av .lookup.
                 ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
                 Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
@@ -128,9 +131,6 @@ Pane tidigarekoppopup;
                 produktpris.setText(price.toString() + " kr");
                 produktnamn.setText(text);
                 produktbild.setImage(image);
-                produktbild.setPreserveRatio(true);
-                produktbild.setFitWidth(200);
-                produktbild.setFitHeight(137);
                 
             } catch (IOException exception) {
                 throw new RuntimeException(exception);
@@ -178,7 +178,10 @@ Pane tidigarekoppopup;
     
     }
    
-    
+    @FXML
+    private void togglekategori() {
+        kategorifilter.setVisible(!kategorifilter.isVisible());
+    }
     @FXML
     private void toggleSidebar() {
         kundvagnsidebar.setVisible(!kundvagnsidebar.isVisible());
