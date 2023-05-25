@@ -40,7 +40,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Text layoutX="123.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="26.06878662109375">
+                  <Text fx:id="numberofitems" layoutX="123.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER" wrappingWidth="26.06878662109375">
                      <font>
                         <Font name="System Bold" size="28.0" />
                      </font>
