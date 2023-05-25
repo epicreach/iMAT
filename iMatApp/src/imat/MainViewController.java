@@ -33,10 +33,16 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCart;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 import javafx.scene.paint.Color;
-
+import javafx.scene.layout.VBox;
+import javafx.scene.control.ScrollPane;
 
 public class MainViewController implements Initializable {
+
+    @FXML
+    Text testText;
 
     @FXML
     ImageView imatLogo;
@@ -62,6 +68,9 @@ public class MainViewController implements Initializable {
     HBox categoryContainer;
 
     @FXML
+    HBox cartContainer;
+
+    @FXML
     Button tidigarekopbutton;
    
     @FXML
@@ -74,8 +83,8 @@ public class MainViewController implements Initializable {
     HBox categoryTemplate;
     @FXML
     Button kategoriknapp;
-@FXML 
-Pane tidigarekoppopup;
+    @FXML 
+    Pane tidigarekoppopup;
 
     @FXML
     Button jamforkopvagnbutton;
@@ -83,7 +92,13 @@ Pane tidigarekoppopup;
     @FXML
     Button tillkassanbutton;
 
+    @FXML
+    HBox cartContainer1;
 
+    @FXML 
+    Text summa;
+
+    int vboxCount = 0;
     int currentIndex = 1;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
@@ -94,31 +109,19 @@ Pane tidigarekoppopup;
         String iMatDirectory = iMatDataHandler.imatDirectory();
         
         
-
+        
         fontSetter();
 
         imageSetter();
         load_items();
-
-        List<Product> products = iMatDataHandler.getProducts();
-       refresh_item(1,products);
-
-        //categoryTemplate.setSpacing(50);
-
-        //Template setOnAction-funktion
-        nextItem.setOnAction(event -> {
-            currentIndex = (currentIndex + 1) % products.size();
-            refresh_item(currentIndex, products);
-        });
-       
-        
     }
 
 
 
     public void load_items() {
         categoryContainer.getChildren().clear();
-        //Kör igenom 7 objekt för tillfället, ska ändras när vi får ordning på kategorierna med filter.
+        int len = iMatDataHandler.getProducts().size();
+        
         for (int i = 1; i < 8; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
             try {
@@ -138,6 +141,14 @@ Pane tidigarekoppopup;
                 produktpris.setText(price.toString() + " kr");
                 produktnamn.setText(text);
                 produktbild.setImage(image);
+
+
+                Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
+                // Eventhanterare för klicka köp.
+                int itemIndex = i; // Sparar nuvarande index
+                itemButton.setOnAction(event -> {
+                    handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
+                });
             } catch (IOException exception) {
                 throw new RuntimeException(exception);
             }
@@ -146,19 +157,65 @@ Pane tidigarekoppopup;
 
 
 
-    public void refresh_item(int num, List<Product> products){
-            //Hämtar in en produkt på ett index
-            Product item = iMatDataHandler.getProduct(num);
-            //Laddar in bilden
-            Image image = iMatDataHandler.getFXImage(item);
-            //Sätter bilden till den inladdade
-            pictureID.setImage(image);
-            //Sätter texten till produktens namn
-            String text = item.getName();
-            productName.setText(text);
-
-        
+    private void handleItemButtonClick(int itemIndex) {
+        Product item = iMatDataHandler.getProduct(itemIndex);
+        iMatDataHandler.getShoppingCart().addProduct(item);
+        //System.out.println(iMatDataHandler.getShoppingCart().getItems());
+        display_shoppingcart();
     }
+
+
+    
+
+    private void display_shoppingcart() {
+        cartContainer1.getChildren().clear();
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+        int i = 1;
+        double sum = shoppingCart.getTotal();
+        summa.setText(String.valueOf(sum) + " kr");
+        for (ShoppingItem product1 : shoppingCart.getItems()) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
+            try {
+                i += 1;
+                AnchorPane loadedPane = fxmlLoader.load();
+                //Ställer in skala samt höjd och bredd på objektet.
+                loadedPane.setScaleX(0.6); // X-skala
+                loadedPane.setScaleY(0.6); // Y-skala
+                loadedPane.setPrefWidth(100); // bredd
+                loadedPane.setPrefHeight(100); // höjd
+                HBox loadedContainer = new HBox(loadedPane);
+                loadedContainer.setAlignment(Pos.TOP_LEFT); //placerar i övre vänstra hörnet.
+                loadedContainer.setSpacing(10);
+
+                cartContainer1.getChildren().add(loadedContainer);
+    
+                // Hittar rätt fxid med hjälp av .lookup.
+                ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
+                Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
+                Text produktpris = (Text) loadedPane.lookup("#produktpris");
+                // Hämtar datan om produkt
+                Product item = product1.getProduct();
+                Image image = iMatDataHandler.getFXImage(item);
+                String text = item.getName();
+                Double price = item.getPrice();
+                produktpris.setText(price.toString() + " kr");
+                produktnamn.setText(text);
+                produktbild.setImage(image);
+
+
+                Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
+                // Eventhanterare för klicka köp.
+                int itemIndex = i; // Sparar nuvarande index
+                itemButton.setOnAction(event -> {
+                    handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 
     public void fontSetter(){
         Font font = Font.font("Verdana Pro Black", FontWeight.BOLD, 20);
@@ -194,7 +251,12 @@ Pane tidigarekoppopup;
     
     }
    
-    
+    @FXML
+    private void tomVarukorg() {
+        iMatDataHandler.getShoppingCart().clear();
+        display_shoppingcart();
+    }
+
     @FXML
     private void toggleSidebar() {
         kundvagnsidebar.setVisible(!kundvagnsidebar.isVisible());
@@ -203,6 +265,8 @@ Pane tidigarekoppopup;
     private void toggleTidigarekop() {
         tidigarekoppopup.setVisible(!tidigarekoppopup.isVisible());
     }
+
+
     @FXML
     private void openNewPage() {
         try {

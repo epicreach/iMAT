@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -73,25 +72,10 @@
                            <content>
                               <Pane prefHeight="712.0" prefWidth="984.0">
                                  <children>
-                                    <HBox fx:id="categoryContainer" layoutX="72.0" layoutY="41.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
-                                    <HBox layoutX="72.0" layoutY="218.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;">
-                                       <children>
-                                          <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                             <children>
-                                                <Label fx:id="productName" layoutX="72.0" text="Testtext">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
-                                                <Button fx:id="nextItem" layoutX="75.0" layoutY="126.0" mnemonicParsing="false" text="Nästa" />
-                                                <ImageView fx:id="pictureID" fitHeight="105.0" fitWidth="169.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
-                                             </children>
-                                          </AnchorPane>
-                                       </children>
-                                    </HBox>
+                                    <HBox fx:id="categoryContainer" layoutX="66.0" layoutY="42.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
+                                    <HBox fx:id="categoryContainer1" layoutX="72.0" layoutY="218.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
                                     <HBox layoutX="72.0" layoutY="390.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
                                     <HBox layoutX="72.0" layoutY="554.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0" />
                                  </children>
                               </Pane>
                            </content>
@@ -102,11 +86,10 @@
             </StackPane>
          </center>
       </BorderPane>
-      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0" visible="false">
+      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0">
          <children>
             <AnchorPane layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;" translateX="598.0" translateY="155.0">
                <children>
-                  <HBox layoutX="10.0" layoutY="81.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
                   <Button layoutX="22.0" layoutY="23.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="46.0" prefWidth="157.0" style="-fx-background-color: #7DB1FF;" text="Stäng Varukorg">
                      <font>
                         <Font name="System Bold" size="18.0" />
@@ -126,13 +109,23 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Button layoutX="210.0" layoutY="23.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #7DB1FF;" text="Töm Varukorg">
+                  <Button layoutX="210.0" layoutY="23.0" mnemonicParsing="false" onAction="#tomVarukorg" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #7DB1FF;" text="Töm Varukorg">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <HBox layoutX="10.0" layoutY="188.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
+                  <HBox layoutX="10.0" layoutY="188.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;">
+                     <children>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="392.0" prefWidth="397.0" />
+                     </children></HBox>
                   <HBox layoutX="10.0" layoutY="298.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
+                  <ScrollPane fitToWidth="true" layoutX="9.0" layoutY="77.0" prefHeight="321.0" prefWidth="382.0">
+                     <content>
+                        <HBox fx:id="cartContainer1" prefHeight="318.0" prefWidth="379.0" style="-fx-background-color: #d3d3d3;" />
+                     </content>
+                  </ScrollPane>
+                  <Text layoutX="22.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Din totala summa är: " />
+                  <Text fx:id="summa" layoutX="144.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </AnchorPane>
          </children>
