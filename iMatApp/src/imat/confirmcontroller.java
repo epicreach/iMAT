@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
-public class Confirmcontroller implements Initializable{
+public class confirmcontroller implements Initializable{
     @FXML 
     Label confirmdate;
 
