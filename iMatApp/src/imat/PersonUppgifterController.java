@@ -12,7 +12,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import se.chalmers.cse.dat216.project.Customer;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 public class PersonUppgifterController implements Initializable{
 
@@ -22,10 +25,46 @@ public class PersonUppgifterController implements Initializable{
     Button frgndbutton;
     @FXML
     Button nastasida;
+    @FXML
+    TextField namnTextField;
+    @FXML
+    TextField adressTextField;
+    @FXML
+    TextField postTextField;
+    @FXML
+    TextField emailTextField;
+    @FXML
+    TextField mobilTextField;
+    
+    IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
+    Customer customer = iMatDataHandler.getCustomer();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        namnTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setFirstName(newValue);
+        });
+        adressTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setAddress(newValue);
+        });
+
+        postTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setPostAddress(newValue);
+        });
+
+        emailTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setEmail(newValue);
+        });
+
+        mobilTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setMobilePhoneNumber(newValue);
+        });
+
+        namnTextField.setText(customer.getFirstName());
+        adressTextField.setText(customer.getAddress());
+        postTextField.setText(customer.getPostAddress());
+        emailTextField.setText(customer.getEmail());
+        mobilTextField.setText(customer.getMobilePhoneNumber());
     }
     @FXML
     private void openNewPage() {
@@ -53,4 +92,10 @@ public class PersonUppgifterController implements Initializable{
             e.printStackTrace();
         }
     }
+
+  
+
+  
+    
+
 }

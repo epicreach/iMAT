@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
@@ -29,7 +30,7 @@
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="kategoriknapp" layoutX="30.0" layoutY="95.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="194.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #7DB1FF;" text="Kategorier">
+                  <Button fx:id="kategoriknapp" layoutX="33.0" layoutY="95.0" mnemonicParsing="false" onAction="#togglekategori" prefHeight="45.0" prefWidth="194.0" scaleX="1.1" scaleY="1.1" style="-fx-background-color: #7DB1FF;" text="Kategorier">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font>
@@ -66,11 +67,11 @@
             <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="402.0" StackPane.alignment="CENTER_RIGHT" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="200.0" prefWidth="1000.0">
                      <children>
                         <ScrollPane prefHeight="542.0" prefWidth="1000.0">
                            <content>
-                              <Pane prefHeight="712.0" prefWidth="984.0">
+                              <Pane prefHeight="9500.0" prefWidth="984.0">
                                  <children>
                                     <HBox fx:id="categoryContainer" layoutX="66.0" layoutY="42.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
                                     <HBox fx:id="categoryContainer1" layoutX="72.0" layoutY="218.0" prefHeight="158.0" prefWidth="840.0" style="-fx-background-color: #d3d3d3;" />
@@ -86,7 +87,77 @@
             </StackPane>
          </center>
       </BorderPane>
-      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0">
+      <StackPane layoutY="152.0" prefHeight="511.0" prefWidth="350.0">
+         <children>
+            <AnchorPane fx:id="kategorifilter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" style="-fx-background-color: white;" translateX="-78.0" visible="false">
+               <children>
+                  <Pane layoutY="118.0" prefHeight="427.0" prefWidth="195.0" style="-fx-background-color: #d3d3d3;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="118.0">
+                     <children>
+                        <ScrollPane layoutY="-50.0" prefHeight="476.0" prefWidth="200.0" style="-fx-background-color: #d3d3d3;">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="873.0" prefWidth="200.0">
+                                 <children>
+                                    <Button layoutX="17.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Frukt och Grönt">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="17.0" layoutY="56.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Bröd och Bageri">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="16.0" layoutY="98.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Mejeri och Ägg">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="16.0" layoutY="140.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Kött och Fågel">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="17.0" layoutY="182.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Fisk och Skaldjur">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="17.0" layoutY="224.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Dryck">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="17.0" layoutY="266.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Frys">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="17.0" layoutY="310.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Nötter">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="17.0" layoutY="355.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Godis">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </Pane>
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#togglekategori" prefHeight="42.0" prefWidth="100.0" style="-fx-background-color: #7DB1FF;" text="Stäng">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0" visible="false">
          <children>
             <AnchorPane layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;" translateX="598.0" translateY="155.0">
                <children>

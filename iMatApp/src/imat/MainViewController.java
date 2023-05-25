@@ -4,8 +4,6 @@ package imat;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.awt.event.ActionEvent;
-import java.awt.geom.RoundRectangle2D;
 import java.io.File;
 import java.io.IOException;
 
@@ -22,14 +20,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
@@ -48,15 +44,15 @@ public class MainViewController implements Initializable {
     ImageView imatLogo;
     @FXML
     Button kundvagnbutton;
-
+    
     @FXML
     ImageView profilepicture;
     
     @FXML
     BorderPane mainID;
 
-    @FXML
-    ImageView pictureID;
+  @FXML
+  AnchorPane kategorifilter;
 
     @FXML
     Label productName;
@@ -65,14 +61,14 @@ public class MainViewController implements Initializable {
     Button nextItem;
 
     @FXML
-    HBox categoryContainer;
+    FlowPane categoryContainer;
 
     @FXML
     HBox cartContainer;
 
     @FXML
     Button tidigarekopbutton;
-   
+    
     @FXML
     Button favoriterbutton;
     @FXML
@@ -111,7 +107,7 @@ public class MainViewController implements Initializable {
         
         
         fontSetter();
-
+        
         imageSetter();
         load_items();
     }
@@ -126,18 +122,25 @@ public class MainViewController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
             try {
                 AnchorPane loadedPane = fxmlLoader.load();
-                HBox loadedContainer = new HBox(loadedPane);
+                FlowPane loadedContainer = new FlowPane(loadedPane);
+               
                 categoryContainer.getChildren().add(loadedContainer);
-    
+        
+                // Set alignment of the loadedContainer to center
+                loadedContainer.setAlignment(Pos.TOP_LEFT);
+                loadedContainer.setPrefWidth(200);
+                loadedContainer.setHgap(3);
                 // Hittar rätt fxid med hjälp av .lookup.
                 ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
                 Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
                 Text produktpris = (Text) loadedPane.lookup("#produktpris");
+                
                 // Hämtar datan om produkt
                 Product item = iMatDataHandler.getProduct(i);
                 Image image = iMatDataHandler.getFXImage(item);
                 String text = item.getName();
                 Double price = item.getPrice();
+                
                 produktpris.setText(price.toString() + " kr");
                 produktnamn.setText(text);
                 produktbild.setImage(image);
@@ -293,4 +296,8 @@ public class MainViewController implements Initializable {
             e.printStackTrace();
         }
     }
+public void resetToStart(){
+iMatDataHandler.reset();
+ }
+
 }
