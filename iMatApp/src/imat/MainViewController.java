@@ -29,6 +29,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCart;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 public class MainViewController implements Initializable {
@@ -77,6 +79,12 @@ Pane tidigarekoppopup;
 
     @FXML
     Button tillkassanbutton;
+
+    @FXML
+    FlowPane cartContainer;
+
+    @FXML
+    Text summa;
 
 
     int currentIndex = 1;
@@ -132,6 +140,14 @@ Pane tidigarekoppopup;
                 produktnamn.setText(text);
                 produktbild.setImage(image);
                 
+                Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
+                // Eventhanterare för klicka köp.
+                int itemIndex = i; // Sparar nuvarande index
+                itemButton.setOnAction(event -> {
+                    handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
+                });
+
+
             } catch (IOException exception) {
                 throw new RuntimeException(exception);
             }
@@ -141,6 +157,59 @@ Pane tidigarekoppopup;
     }
 
 
+    private void display_shoppingcart() {
+        cartContainer.getChildren().clear();
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+        int i = 1;
+        double sum = shoppingCart.getTotal();
+        summa.setText(String.valueOf(sum) + " kr");
+        for (ShoppingItem product1 : shoppingCart.getItems()) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
+            try {
+                i += 1;
+                AnchorPane loadedPane = fxmlLoader.load();
+
+                
+                FlowPane loadedContainer = new FlowPane(loadedPane);
+                loadedContainer.setAlignment(Pos.TOP_LEFT);
+                loadedContainer.setPrefWidth(200);
+                loadedContainer.setHgap(3);
+
+
+                cartContainer.getChildren().add(loadedContainer);
+    
+                // Hittar rätt fxid med hjälp av .lookup.
+                ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
+                Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
+                Text produktpris = (Text) loadedPane.lookup("#produktpris");
+                // Hämtar datan om produkt
+                Product item = product1.getProduct();
+                Image image = iMatDataHandler.getFXImage(item);
+                String text = item.getName();
+                Double price = item.getPrice();
+                produktpris.setText(price.toString() + " kr");
+                produktnamn.setText(text);
+                produktbild.setImage(image);
+
+
+                Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
+                // Eventhanterare för klicka köp.
+                int itemIndex = i; // Sparar nuvarande index
+                itemButton.setOnAction(event -> {
+                    handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    private void handleItemButtonClick(int itemIndex) {
+        Product item = iMatDataHandler.getProduct(itemIndex);
+        iMatDataHandler.getShoppingCart().addProduct(item);
+        display_shoppingcart();
+    }
 
   
 
@@ -150,7 +219,6 @@ Pane tidigarekoppopup;
         favoriterbutton.setFont(font);
         profilbutton.setFont(font);
         kategoriknapp.setFont(font);
-
     }
     
     /*Lägger till iMAT logon och ikonen i Kundvagnsknappen */
@@ -176,6 +244,12 @@ Pane tidigarekoppopup;
         kundvagnbutton.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
         kundvagnbutton.setGraphic(hbox);
     
+    }
+
+    @FXML
+    private void clearShopping() {
+        iMatDataHandler.getShoppingCart().clear();
+        display_shoppingcart();
     }
    
     @FXML

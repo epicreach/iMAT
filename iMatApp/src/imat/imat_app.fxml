@@ -154,7 +154,7 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0" visible="false">
+      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0">
          <children>
             <AnchorPane layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;" translateX="598.0" translateY="155.0">
                <children>
@@ -178,13 +178,28 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Button layoutX="210.0" layoutY="23.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #7DB1FF;" text="Töm Varukorg">
+                  <Button layoutX="210.0" layoutY="23.0" mnemonicParsing="false" onAction="#clearShopping" prefHeight="45.0" prefWidth="166.0" style="-fx-background-color: #7DB1FF;" text="Töm Varukorg">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
                   <HBox layoutX="10.0" layoutY="188.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
                   <HBox layoutX="10.0" layoutY="298.0" prefHeight="99.0" prefWidth="382.0" style="-fx-background-color: #d3d3d3;" />
+                <AnchorPane layoutX="8.0" layoutY="71.0" minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="382.0">
+                     <children>
+                        <ScrollPane prefHeight="326.0" prefWidth="382.0">
+                           <content>
+                              <Pane prefHeight="327.0" prefWidth="384.0">
+                                 <children>
+                                    <FlowPane fx:id="cartContainer" layoutX="11.0" layoutY="34.0" prefHeight="227.0" prefWidth="344.0" />
+                                 </children>
+                              </Pane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+                  <Text layoutX="22.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summa: " />
+                  <Text fx:id="summa" layoutX="89.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </AnchorPane>
          </children>
