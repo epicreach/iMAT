@@ -124,7 +124,7 @@ Pane tidigarekoppopup;
                 // Set alignment of the loadedContainer to center
                 loadedContainer.setAlignment(Pos.TOP_LEFT);
                 loadedContainer.setPrefWidth(200);
-                loadedContainer.setHgap(3);
+                
                 // Hittar rätt fxid med hjälp av .lookup.
                 ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
                 Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
