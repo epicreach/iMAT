@@ -41,7 +41,7 @@
             </Button>
          </items>
       </ToolBar>
-      <Button fx:id="nastasida" layoutX="628.0" layoutY="595.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Beställ">
+      <Button fx:id="nastasida" layoutX="628.0" layoutY="595.0" mnemonicParsing="false" onAction="#movetoconfirm" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Beställ">
          <styleClass>
             <String fx:value="text-bigger" />
             <String fx:value="pay-och-done-button" />

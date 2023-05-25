@@ -43,7 +43,7 @@
       <StackPane layoutY="70.0" prefHeight="624.0" prefWidth="934.0" />
       <StackPane layoutY="73.0" prefHeight="614.0" prefWidth="934.0">
          <children>
-            <Pane fx:id="swishPane" prefHeight="316.0" prefWidth="411.0">
+            <Pane fx:id="swishPane" prefHeight="316.0" prefWidth="411.0" visible="false">
                <children>
 <Label layoutX="223.0" layoutY="249.0" styleClass="text-bigger" text="Telefonnummer:" />
                   <TextField fx:id="swishmobileTextField" layoutX="500.0" layoutY="245.0" prefHeight="36.0" prefWidth="306.0" />
@@ -54,15 +54,15 @@
                   <TextField fx:id="expmonthTextField" layoutX="499.0" layoutY="431.0" prefHeight="37.0" prefWidth="72.0" promptText="Månad" />
                   <Label fx:id="hembutton" layoutX="178.0" layoutY="247.0" prefHeight="28.0" prefWidth="200.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Namn på kort ägaren:" />
                   <Label layoutX="220.0" layoutY="436.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Giltighetsdatum:" />
-                  <Label layoutX="243.0" layoutY="370.0" prefHeight="28.0" prefWidth="127.0" stylesheets="@imat_app.css" text="Kortnummer:">
+                  <Label layoutX="253.0" layoutY="307.0" prefHeight="28.0" prefWidth="127.0" stylesheets="@imat_app.css" text="Kortnummer:">
                      <styleClass>
                         <String fx:value="textal" />
                         <String fx:value="text-bigger" />
                      </styleClass>
                   </Label>
-                  <Label layoutX="264.0" layoutY="311.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="CVV-koden:" />
-                  <TextField fx:id="cardnrTextField" layoutX="499.0" layoutY="366.0" prefHeight="37.0" prefWidth="306.0" />
-                  <TextField fx:id="cvvTextField" layoutX="499.0" layoutY="306.0" prefHeight="37.0" prefWidth="306.0" />
+                  <Label layoutX="264.0" layoutY="371.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="CVV-koden:" />
+                  <TextField fx:id="cardnrTextField" layoutX="499.0" layoutY="302.0" prefHeight="37.0" prefWidth="306.0" />
+                  <TextField fx:id="cvvTextField" layoutX="499.0" layoutY="366.0" prefHeight="37.0" prefWidth="72.0" />
                   <TextField fx:id="expyearTextField" layoutX="587.0" layoutY="431.0" prefHeight="37.0" prefWidth="72.0" promptText="År" />
                   <TextField fx:id="cardOwnerTextField" layoutX="499.0" layoutY="243.0" prefHeight="37.0" prefWidth="306.0" />
                </children>
