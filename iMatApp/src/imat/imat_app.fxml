@@ -45,7 +45,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Button fx:id="kundvagnbutton" layoutX="735.0" layoutY="41.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="41.0" prefWidth="227.0" text="Kundvagn">
+                  <Button fx:id="kundvagnbutton" layoutX="736.0" layoutY="42.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="41.0" prefWidth="227.0" text="Kundvagn">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>
@@ -154,9 +154,9 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <StackPane fx:id="kundvagnsidebar" prefHeight="150.0" prefWidth="200.0">
+      <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <AnchorPane layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="461.0" style="-fx-background-color: #FFFFFF;" translateX="540.0" translateY="155.0" visible="false">
+            <AnchorPane fx:id="kundvagnsidebar" layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="461.0" style="-fx-background-color: #FFFFFF;" translateX="540.0" translateY="155.0" visible="false">
                <children>
                   <Button layoutX="16.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="46.0" prefWidth="157.0" style="-fx-background-color: #7DB1FF;" text="Stäng Varukorg">
                      <font>
