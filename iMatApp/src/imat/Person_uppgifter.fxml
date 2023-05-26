@@ -38,7 +38,7 @@
          </items>
       </ToolBar>
       <Label layoutX="200.0" layoutY="326.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Adress:" />
-      <Label layoutX="200.0" layoutY="462.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Mailadress:" />
+      <Label layoutX="200.0" layoutY="462.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Mejladress:" />
       <Label layoutX="200.0" layoutY="394.0" prefHeight="28.0" prefWidth="127.0" stylesheets="@imat_app.css" text="Postnummer:">
          <styleClass>
             <String fx:value="textal" />
@@ -55,7 +55,7 @@
             <String fx:value="pay-och-done-button" />
          </styleClass>
       </Button>
-      <TextField fx:id="adressTextField" layoutX="500.0" layoutY="321.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField fx:id="adressTextField" layoutX="500.0" layoutY="323.0" prefHeight="37.0" prefWidth="306.0" />
       <Text layoutX="257.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter " underline="true" />
       <Circle fill="#bcc9d4" layoutX="505.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Separator layoutX="372.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
