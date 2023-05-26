@@ -25,7 +25,7 @@
                         <Image url="@resources/iMAT.png" />
                      </image>
                   </ImageView>
-                  <TextField layoutX="253.0" layoutY="43.0" prefHeight="43.0" prefWidth="466.0" promptText="Sök">
+                  <TextField layoutX="253.0" layoutY="43.0" prefHeight="43.0" prefWidth="466.0" promptText="Sök efter en vara">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -60,6 +60,11 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Text>
+                  <ImageView fitHeight="42.0" fitWidth="37.0" layoutX="681.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/Search.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </top>
