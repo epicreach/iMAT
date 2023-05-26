@@ -103,10 +103,8 @@ Pane tidigarekoppopup;
         
         imageSetter();
         load_items();
+        display_shoppingcart();
 
-        List<Product> products = iMatDataHandler.getProducts();
-       
-        
     }
 
 
@@ -136,25 +134,42 @@ Pane tidigarekoppopup;
                 Image image = iMatDataHandler.getFXImage(item);
                 String text = item.getName();
                 Double price = item.getPrice();
+
+                ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+
+                double sum = shoppingCart.getTotal();
+                Text numberofitems = (Text) loadedPane.lookup("#numberofitems");
+                summa.setText(String.valueOf(sum) + " kr");
+                for (ShoppingItem product1 : shoppingCart.getItems()) {
+                    if(product1.getProduct() == item){
+                    numberofitems.setText(String.valueOf((int)product1.getAmount()));
+                }
+                
+            }
                 
                 produktpris.setText(price.toString() + " kr");
                 produktnamn.setText(text);
                 produktbild.setImage(image);
                 
                 Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
+                Button itemButton3 = (Button) loadedPane.lookup("#tabortknapp");
                 // Eventhanterare för klicka köp.
                 int itemIndex = i; // Sparar nuvarande index
                 itemButton.setOnAction(event -> {
                     handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
+                });
+                itemButton3.setOnAction(event ->{
+                    handleItemButtonClick3(itemIndex);
                 });
 
 
             } catch (IOException exception) {
                 throw new RuntimeException(exception);
             }
-        }
-        
-        
+
+
+
+            }
     }
 
 
@@ -192,15 +207,21 @@ Pane tidigarekoppopup;
                 produktpris.setText(price.toString() + " kr");
                 produktnamn.setText(text);
                 produktbild.setImage(image);
-                numberofitems.setText(String.valueOf(product1.getAmount()));
+                numberofitems.setText(String.valueOf((int)product1.getAmount()));
 
 
                 Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
+                Button itemButton3 = (Button) loadedPane.lookup("#tabortknapp");
                 // Eventhanterare för klicka köp.
-                int itemIndex = i; // Sparar nuvarande index
+                int itemIndex = item.getProductId();
+
                 itemButton.setOnAction(event -> {
                     handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
                 });
+                itemButton3.setOnAction(event ->{
+                    handleItemButtonClick3(itemIndex);
+                });
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -208,25 +229,47 @@ Pane tidigarekoppopup;
     }
 
 
+    private void handleItemButtonClick3(int itemIndex){
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+        Product item = iMatDataHandler.getProduct(itemIndex); 
+        double amount = 0;
+        for (ShoppingItem product1 : shoppingCart.getItems()){
+            if (product1.getProduct() == item){
+                amount = product1.getAmount() - 1;
+            }
+        }
+        if (amount == -1){
+            return;
+        }
+        FlowPane loadedPane = (FlowPane) categoryContainer.getChildren().get(itemIndex - 1);
+        Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
+        numberLabel.setText(String.valueOf((int)amount));
+        iMatDataHandler.getShoppingCart().addProduct(item,-1);
+        display_shoppingcart();
+    }
+    
+
+
 
     private void handleItemButtonClick(int itemIndex) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-        Product item = iMatDataHandler.getProduct(itemIndex);
+        Product item = iMatDataHandler.getProduct(itemIndex); 
         double amount = 0;
         for (ShoppingItem product1 : shoppingCart.getItems()){
             if (product1.getProduct() == item){
                 amount = product1.getAmount() + 1;
             }
         }
+        if (amount == 0){
+            amount = 1;
+        }
         FlowPane loadedPane = (FlowPane) categoryContainer.getChildren().get(itemIndex - 1);
         Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
-        numberLabel.setText(String.valueOf(amount));
+        numberLabel.setText(String.valueOf((int)amount));
         iMatDataHandler.getShoppingCart().addProduct(item);
         display_shoppingcart();
     }
 
-
-  
 
     public void fontSetter(){
         Font font = Font.font("Verdana Pro Black", FontWeight.BOLD, 20);
