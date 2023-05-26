@@ -85,6 +85,10 @@ public class PersonUppgifterController implements Initializable{
     }
     @FXML
     private void openNewPage() {
+        
+
+        if (isValidEmail(customer.getEmail()) && isValidName(customer.getFirstName()) && isValidName(customer.getLastName()) && isValidMobil(customer.getMobilePhoneNumber())){
+        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Betalningssätt.fxml"));
             Parent newPageRoot = loader.load();
@@ -130,7 +134,31 @@ public  boolean isValidEmail(String email) {
     return matcher.matches();
 
     
-
 }
- }
 
+ boolean isValidName(String name){
+
+    if (name == null || name.isEmpty()) {
+        nullnamnfel.setVisible(true);
+        return false;
+    }
+
+    nullnamnfel.setVisible(false);
+    return true;
+}
+
+boolean isValidMobil(String phoneNumber){
+    if (phoneNumber == null || phoneNumber.isEmpty()) {
+        mobilfel.setVisible(true);
+        return false;
+    }
+
+    // Remove any non-digit characters from the phone number
+    String digitsOnly = phoneNumber.replaceAll("\\D", "");
+
+    // Check if the phone number has a valid format
+    Pattern pattern = Pattern.compile("^\\d{10}$"); // Assumes a 10-digit phone number
+    mobilfel.setVisible(false);
+    return pattern.matcher(digitsOnly).matches();
+}
+}
