@@ -87,6 +87,7 @@ Pane tidigarekoppopup;
     Text summa;
 
 
+
     int currentIndex = 1;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
@@ -172,8 +173,8 @@ Pane tidigarekoppopup;
                 
                 FlowPane loadedContainer = new FlowPane(loadedPane);
                 loadedContainer.setAlignment(Pos.TOP_LEFT);
-                loadedContainer.setPrefWidth(200);
-                loadedContainer.setHgap(3);
+                loadedContainer.setPrefWidth(201);
+                
 
 
                 cartContainer.getChildren().add(loadedContainer);
@@ -182,6 +183,7 @@ Pane tidigarekoppopup;
                 ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
                 Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
                 Text produktpris = (Text) loadedPane.lookup("#produktpris");
+                Text numberofitems = (Text) loadedPane.lookup("#numberofitems");
                 // Hämtar datan om produkt
                 Product item = product1.getProduct();
                 Image image = iMatDataHandler.getFXImage(item);
@@ -190,6 +192,7 @@ Pane tidigarekoppopup;
                 produktpris.setText(price.toString() + " kr");
                 produktnamn.setText(text);
                 produktbild.setImage(image);
+                numberofitems.setText(String.valueOf(product1.getAmount()));
 
 
                 Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
@@ -205,11 +208,23 @@ Pane tidigarekoppopup;
     }
 
 
+
     private void handleItemButtonClick(int itemIndex) {
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
         Product item = iMatDataHandler.getProduct(itemIndex);
+        double amount = 0;
+        for (ShoppingItem product1 : shoppingCart.getItems()){
+            if (product1.getProduct() == item){
+                amount = product1.getAmount() + 1;
+            }
+        }
+        FlowPane loadedPane = (FlowPane) categoryContainer.getChildren().get(itemIndex - 1);
+        Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
+        numberLabel.setText(String.valueOf(amount));
         iMatDataHandler.getShoppingCart().addProduct(item);
         display_shoppingcart();
     }
+
 
   
 
@@ -248,6 +263,13 @@ Pane tidigarekoppopup;
 
     @FXML
     private void clearShopping() {
+        //Tar bort allt i varukorgen
+        List<Product> arr = iMatDataHandler.getProducts();
+        for (int i = 1; i < arr.size(); i++) {
+            FlowPane loadedPane = (FlowPane) categoryContainer.getChildren().get(i - 1);
+            Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
+            numberLabel.setText(String.valueOf(0));
+        }
         iMatDataHandler.getShoppingCart().clear();
         display_shoppingcart();
     }

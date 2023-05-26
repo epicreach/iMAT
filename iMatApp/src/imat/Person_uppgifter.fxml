@@ -37,7 +37,7 @@
                </graphic></Button>
          </items>
       </ToolBar>
-      <Label layoutX="200.0" layoutY="329.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Adress:" />
+      <Label layoutX="200.0" layoutY="326.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Adress:" />
       <Label layoutX="200.0" layoutY="462.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Mejladress:" />
       <Label layoutX="200.0" layoutY="394.0" prefHeight="28.0" prefWidth="127.0" stylesheets="@imat_app.css" text="Postnummer:">
          <styleClass>
@@ -63,7 +63,7 @@
       <Text layoutX="446.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Betalningssätt" />
       <Circle fill="#bcc9d4" layoutX="676.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Text layoutX="625.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leveransdetaljer" />
-      <Label layoutX="201.0" layoutY="217.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Förnamn:" />
+      <Label layoutX="199.0" layoutY="263.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="För- och efternamn" />
       <ImageView blendMode="MULTIPLY" fitHeight="36.0" fitWidth="46.0" layoutX="658.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Leverans.jpg" />
@@ -83,15 +83,12 @@
             <Image url="@resources/Betalningssätt.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="namnTextField" layoutX="499.0" layoutY="212.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField fx:id="namnTextField" layoutX="500.0" layoutY="258.0" prefHeight="37.0" prefWidth="306.0" />
       <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" layoutX="843.0" layoutY="608.0" onMouseClicked="#openNewPage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Näsa.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="198.0" layoutY="272.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Efternamn:" />
-      <TextField fx:id="efternamnText" layoutX="499.0" layoutY="267.0" prefHeight="37.0" prefWidth="306.0" />
-      <Text fx:id="ogiltligmejl" fill="RED" layoutX="819.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ogiltlig Mejl" visible="false" />
    </children>
    <styleClass>
       <String fx:value="text-normal" />

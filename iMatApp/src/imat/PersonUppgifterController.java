@@ -23,11 +23,17 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 public class PersonUppgifterController implements Initializable{
 
     @FXML
+    Text mobilfel;
+    @FXML
     Button hembutton;
+    @FXML
+    Text bokstavfelnamn;
     @FXML
     Button frgndbutton;
     @FXML
     Button nastasida;
+    @FXML
+    Text nullnamnfel;
     @FXML
     TextField namnTextField;
     @FXML
@@ -79,9 +85,6 @@ public class PersonUppgifterController implements Initializable{
     }
     @FXML
     private void openNewPage() {
-        
-        if (isValidEmail(customer.getEmail()))
-        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Betalningssätt.fxml"));
             Parent newPageRoot = loader.load();
@@ -92,6 +95,7 @@ public class PersonUppgifterController implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
     }
     @FXML
     private void goBack(ActionEvent event) {
@@ -126,5 +130,7 @@ public  boolean isValidEmail(String email) {
     return matcher.matches();
 
     
+
 }
-}
+ }
+
