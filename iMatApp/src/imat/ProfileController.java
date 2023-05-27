@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -31,14 +32,21 @@ public class ProfileController implements Initializable {
     private Button tidigarekopbutton;
     @FXML
     private ImageView profilepicture;
+    @FXML
+    ImageView imatLogo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         imageSetter();
+        imatLogo.setOnMouseClicked(event -> goBack(event));
     }
 
+    
+    
+    
+    
     @FXML
-    private void goBack(ActionEvent event) {
+    private void goBack(MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("imat_app.fxml"));
             Parent mainViewRoot = loader.load();
