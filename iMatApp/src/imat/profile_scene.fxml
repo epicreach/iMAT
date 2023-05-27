@@ -63,7 +63,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Text layoutX="659.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Levereras Tidigast: Fredag 11:15">
+                  <Text layoutX="659.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Levereras Tidigast: Fredag 11:30">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -74,7 +74,7 @@
       </AnchorPane>
       <Pane layoutX="29.0" layoutY="175.0" prefHeight="490.0" prefWidth="293.0" style="-fx-background-color: #d3d3d3;">
          <children>
-            <ImageView fx:id="profilepicture" fitHeight="276.0" fitWidth="298.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="profilepicture" fitHeight="276.0" fitWidth="298.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" />
             <Text layoutX="51.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Papa Smurf" textAlignment="CENTER" wrappingWidth="191.903076171875">
                <font>
                   <Font name="System Bold" size="34.0" />
@@ -85,14 +85,10 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <Button layoutX="76.0" layoutY="418.0" mnemonicParsing="false" style="-fx-background-color: #7DB1FF;" text="Logga Ut">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Button>
          </children>
       </Pane>
-      <Pane layoutX="417.0" layoutY="175.0" prefHeight="490.0" prefWidth="566.0" style="-fx-background-color: #d3d3d3;">
+      <AnchorPane layoutX="420.0" layoutY="174.0" prefHeight="504.0" prefWidth="574.0" />
+      <Pane fx:id="personpane" layoutX="417.0" layoutY="175.0" prefHeight="490.0" prefWidth="566.0" style="-fx-background-color: #d3d3d3;">
          <children>
             <Text layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Förnamn: ">
                <font>
@@ -104,7 +100,7 @@
                   <Font size="35.0" />
                </font>
             </Text>
-            <Button fx:id="korttoggle" layoutX="197.0" layoutY="339.0" mnemonicParsing="false" prefHeight="118.0" prefWidth="215.0" style="-fx-background-color: #7DB1FF;" text="Lägg till/Ändra Kortuppgifter" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+            <Button layoutX="197.0" layoutY="339.0" mnemonicParsing="false" onAction="#toggletokort" prefHeight="118.0" prefWidth="215.0" style="-fx-background-color: #7DB1FF;" text="Lägg till/Ändra Kortuppgifter" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -130,17 +126,95 @@
             <TextField fx:id="fornamnText" layoutX="304.0" layoutY="16.0" prefHeight="43.0" prefWidth="242.0">
                <font>
                   <Font size="18.0" />
-               </font></TextField>
-            <TextField fx:id="efternamnText" layoutX="304.0" layoutY="69.0" prefHeight="43.0" prefWidth="242.0" />
-            <TextField fx:id="adressText" layoutX="305.0" layoutY="164.0" prefHeight="43.0" prefWidth="242.0" />
-            <TextField fx:id="mobilText" layoutX="305.0" layoutY="263.0" prefHeight="43.0" prefWidth="242.0" />
-            <TextField fx:id="postText" layoutX="305.0" layoutY="213.0" prefHeight="43.0" prefWidth="242.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="efternamnText" layoutX="304.0" layoutY="69.0" prefHeight="43.0" prefWidth="242.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="adressText" layoutX="305.0" layoutY="164.0" prefHeight="43.0" prefWidth="242.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="mobilText" layoutX="305.0" layoutY="263.0" prefHeight="43.0" prefWidth="242.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="postText" layoutX="305.0" layoutY="213.0" prefHeight="43.0" prefWidth="242.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
             <Text layoutX="14.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mejl">
                <font>
                   <Font size="35.0" />
                </font>
             </Text>
-            <TextField fx:id="mejlText" layoutX="304.0" layoutY="116.0" prefHeight="43.0" prefWidth="242.0" />
+            <TextField fx:id="mejlText" layoutX="304.0" layoutY="116.0" prefHeight="43.0" prefWidth="242.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane fx:id="kortpane" layoutX="416.0" layoutY="176.0" prefHeight="490.0" prefWidth="566.0" style="-fx-background-color: #d3d3d3;" visible="false">
+         <children>
+            <Text layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Namn:">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kortnummer:">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVV:">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
+            <Text layoutX="14.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utgångsdatum:">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
+            <TextField fx:id="cardOwnerTextField" layoutX="283.0" layoutY="16.0" prefHeight="47.0" prefWidth="276.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="cvvTextField" layoutX="283.0" layoutY="69.0" prefHeight="47.0" prefWidth="276.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="cardnrTextField" layoutX="283.0" layoutY="120.0" prefHeight="47.0" prefWidth="84.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="expmonthTextField" layoutX="283.0" layoutY="169.0" prefHeight="47.0" prefWidth="84.0" promptText="Månad">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="expyearTextField" layoutX="379.0" layoutY="169.0" prefHeight="47.0" prefWidth="84.0" promptText="År">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button layoutX="171.0" layoutY="308.0" mnemonicParsing="false" onAction="#toggletoperson" prefHeight="118.0" prefWidth="225.0" style="-fx-background-color: #7DB1FF;" text="Lägg till/Ändra Personuppgifter" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </Pane>
    </children>

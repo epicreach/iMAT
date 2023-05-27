@@ -13,7 +13,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import javafx.scene.Node;
@@ -49,9 +51,25 @@ public class ProfileController implements Initializable {
     TextField postText;
     @FXML
     TextField mobilText;
+    @FXML
+    TextField cardOwnerTextField;
+    @FXML
+    TextField cvvTextField;
+    @FXML
+    TextField cardnrTextField;
+    @FXML
+    TextField expyearTextField;
+    @FXML
+    TextField expmonthTextField;
+ 
+    @FXML
+    Pane kortpane;
+    @FXML
+    Pane personpane;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
     Customer customer = iMatDataHandler.getCustomer();
+    CreditCard creditcard = iMatDataHandler.getCreditCard();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -85,10 +103,61 @@ public class ProfileController implements Initializable {
         postText.setText(customer.getPostAddress());
         mejlText.setText(customer.getEmail());
         mobilText.setText(customer.getMobilePhoneNumber());
+
+        cardOwnerTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            creditcard.setHoldersName(newValue);
+        });
+        cvvTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                try {
+                    int cvv = Integer.parseInt(newValue);
+                    creditcard.setVerificationCode(cvv);
+                } catch (NumberFormatException e) {
+                    
+                }
+            }
+        });
+        cardnrTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            creditcard.setCardNumber(newValue);
+        });
+        expyearTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                try {
+                    int year = Integer.parseInt(newValue);
+                    creditcard.setValidYear(year);
+                } catch (NumberFormatException e) {
+                    
+                }
+            }
+        });
+        expmonthTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                try {
+                    int month = Integer.parseInt(newValue);
+                    creditcard.setValidMonth(month);
+                } catch (NumberFormatException e) {
+                   
+                }
+            }
+        });
+        cardOwnerTextField.setText(creditcard.getHoldersName());
+        cvvTextField.setText(Integer.toString(creditcard.getVerificationCode()));
+        cardnrTextField.setText(creditcard.getCardNumber());
+        expmonthTextField.setText(Integer.toString(creditcard.getValidMonth()));
+        expyearTextField.setText(Integer.toString(creditcard.getValidYear()));
     }
 
+    @FXML
+   public void toggletokort(){
+        kortpane.setVisible(true);
+        personpane.setVisible(false);
     
-    
+    }
+    @FXML
+   public void toggletoperson(){
+        personpane.setVisible(true);
+        kortpane.setVisible(false);
+    }
     
     
     @FXML
