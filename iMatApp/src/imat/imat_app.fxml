@@ -151,7 +151,7 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <StackPane fx:id="kategorifilter" layoutY="152.0" prefHeight="511.0" prefWidth="350.0" visible="false">
+      <StackPane fx:id="kategorifilter" layoutY="152.0" prefHeight="511.0" prefWidth="350.0">
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" style="-fx-background-color: white;" translateX="-78.0">
                <children>
@@ -161,47 +161,52 @@
                            <content>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="873.0" prefWidth="200.0">
                                  <children>
-                                    <Button layoutX="17.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Frukt och Grönt">
+                                    <Button fx:id="b1" layoutX="16.0" layoutY="401.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Frukt">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="17.0" layoutY="56.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Bröd och Bageri">
+                                    <Button fx:id="b2" layoutX="17.0" layoutY="56.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Bröd och Bageri">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="16.0" layoutY="98.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Mejeri och Ägg">
+                                    <Button fx:id="b3" layoutX="16.0" layoutY="98.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Mejeri och Ägg">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="16.0" layoutY="140.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Kött och Fågel">
+                                    <Button fx:id="b4" layoutX="16.0" layoutY="140.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Kött och Fågel">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="17.0" layoutY="182.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Fisk och Skaldjur">
+                                    <Button fx:id="b5" layoutX="17.0" layoutY="182.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Fisk och Skaldjur">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="17.0" layoutY="224.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Dryck">
+                                    <Button fx:id="b6" layoutX="17.0" layoutY="224.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Dryck">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="17.0" layoutY="266.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Frys">
+                                    <Button fx:id="b7" layoutX="17.0" layoutY="266.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Grönt">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="17.0" layoutY="310.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Nötter">
+                                    <Button fx:id="b8" layoutX="17.0" layoutY="310.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Nötter">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button layoutX="17.0" layoutY="355.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Godis">
+                                    <Button fx:id="b9" layoutX="17.0" layoutY="355.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Godis">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="b11" layoutX="16.0" layoutY="8.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="166.0" text="Visa alla" underline="true">
                                        <font>
                                           <Font name="System Bold" size="15.0" />
                                        </font>

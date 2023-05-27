@@ -2,6 +2,7 @@
 package imat;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.io.File;
@@ -11,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,6 +32,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ProductCategory;
 import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
@@ -89,9 +92,40 @@ public class MainViewController implements Initializable {
     @FXML
     Text summa;
 
+    @FXML
+    Button b1;
+
+    @FXML
+    Button b2;
+
+    @FXML
+    Button b3;
+
+    @FXML
+    Button b4;
+
+    @FXML
+    Button b5;
+
+    @FXML
+    Button b6;
+
+    @FXML
+    Button b7;
+
+    @FXML
+    Button b8;
+
+    @FXML
+    Button b9;
+
+    @FXML
+    Button b11;
+
 
 
     int currentIndex = 1;
+    String lastFilter;
 
     IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
 
@@ -107,15 +141,17 @@ public class MainViewController implements Initializable {
         imageSetter();
         load_items();
         display_shoppingcart();
+        init_filter();
 
     }
-
 
 
     public void load_items() {
         categoryContainer.getChildren().clear();
         //Kör igenom 7 objekt för tillfället, ska ändras när vi får ordning på kategorierna med filter.
-        for (int i = 1; i < 155; i++) {
+        List<Product> prolist = iMatDataHandler.getProducts();
+        for (Product p : prolist){
+        //for (int i = 1; i < 155; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
             try {
                 AnchorPane loadedPane = fxmlLoader.load();
@@ -133,7 +169,7 @@ public class MainViewController implements Initializable {
                 Text produktpris = (Text) loadedPane.lookup("#produktpris");
                 
                 // Hämtar datan om produkt
-                Product item = iMatDataHandler.getProduct(i);
+                Product item = p;
                 Image image = iMatDataHandler.getFXImage(item);
                 String text = item.getName();
                 Double price = item.getPrice();
@@ -157,7 +193,7 @@ public class MainViewController implements Initializable {
                 Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
                 Button itemButton3 = (Button) loadedPane.lookup("#tabortknapp");
                 // Eventhanterare för klicka köp.
-                int itemIndex = i; // Sparar nuvarande index
+                int itemIndex = item.getProductId(); // Sparar nuvarande index
                 itemButton.setOnAction(event -> {
                     handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
                 });
@@ -220,9 +256,16 @@ public class MainViewController implements Initializable {
 
                 itemButton.setOnAction(event -> {
                     handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
+                    if(categoryContainer.getChildren().size() < 150){
+                        filter_items(lastFilter);
+                    }
+                    
                 });
                 itemButton3.setOnAction(event ->{
                     handleItemButtonClick3(itemIndex);
+                    if(categoryContainer.getChildren().size() < 150){
+                        filter_items(lastFilter);
+                    }
                 });
 
             } catch (IOException e) {
@@ -232,8 +275,138 @@ public class MainViewController implements Initializable {
         //System.out.println(null);
     }
 
+    public List<ProductCategory> convert_productcategory(String input){
+        lastFilter = input;
+        List<ProductCategory> list = new ArrayList<>();
+        if(input.equals("B1")){
+            list.add(ProductCategory.FRUIT);
+            list.add(ProductCategory.CITRUS_FRUIT);
+            list.add(ProductCategory.EXOTIC_FRUIT);
+
+        }
+        else if(input.equals("B2")){
+            list.add(ProductCategory.BREAD);
+            list.add(ProductCategory.PASTA);
+
+        }
+        else if(input.equals("B3")){
+            list.add(ProductCategory.DAIRIES);
+        }
+        else if(input.equals("B4")){
+            list.add(ProductCategory.MEAT);
+        }
+        else if(input.equals("B5")){
+            list.add(ProductCategory.FISH);
+        }
+        else if(input.equals("B6")){
+            list.add(ProductCategory.COLD_DRINKS);
+        }
+        else if(input.equals("B7")){
+            list.add(ProductCategory.CABBAGE);
+            list.add(ProductCategory.HERB);
+        }
+        else if(input.equals("B8")){
+            list.add(ProductCategory.NUTS_AND_SEEDS);
+        }
+        else if(input.equals("B9")){
+            list.add(ProductCategory.SWEET);
+        }
+        else if(input.equals("B11")){
+            ProductCategory[] all = ProductCategory.values();
+            for(ProductCategory pro : all){
+            list.add(pro);
+        }
+        }
+        return(list);
+        //return null;
+    }
+
+    public void filter_items(String input) {
+        categoryContainer.getChildren().clear();
+        List<ProductCategory> procat = convert_productcategory(input);
+        List<Product> items = new ArrayList<>();
+        for(ProductCategory productcat : procat){
+            for(Product pro : iMatDataHandler.getProducts(productcat)){
+                items.add(pro);
+            }
+        }
+        for (Product p : items){
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
+            try {
+                AnchorPane loadedPane = fxmlLoader.load();
+                FlowPane loadedContainer = new FlowPane(loadedPane);
+               
+                categoryContainer.getChildren().add(loadedContainer);
+        
+                // Set alignment of the loadedContainer to center
+                loadedContainer.setAlignment(Pos.TOP_LEFT);
+                loadedContainer.setPrefWidth(200);
+                
+                // Hittar rätt fxid med hjälp av .lookup.
+                ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
+                Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
+                Text produktpris = (Text) loadedPane.lookup("#produktpris");
+                
+                // Hämtar datan om produkt
+                Product item = p;
+                Image image = iMatDataHandler.getFXImage(item);
+                String text = item.getName();
+                Double price = item.getPrice();
+
+                ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+
+                double sum = shoppingCart.getTotal();
+                Text numberofitems = (Text) loadedPane.lookup("#numberofitems");
+                summa.setText(String.valueOf(sum) + " kr");
+                for (ShoppingItem product1 : shoppingCart.getItems()) {
+                    if(product1.getProduct() == item){
+                    numberofitems.setText(String.valueOf((int)product1.getAmount()));
+                }
+                
+            }
+                
+                produktpris.setText(price.toString() + " kr");
+                produktnamn.setText(text);
+                produktbild.setImage(image);
+                
+                Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
+                Button itemButton3 = (Button) loadedPane.lookup("#tabortknapp");
+                // Eventhanterare för klicka köp.
+                int itemIndex = item.getProductId(); // Sparar nuvarande index
+                itemButton.setOnAction(event -> {
+                    handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
+                    filter_items(input);
+                });
+                itemButton3.setOnAction(event ->{
+                    handleItemButtonClick3(itemIndex);
+                    filter_items(input);
+                });
 
 
+            } catch (IOException exception) {
+                throw new RuntimeException(exception);
+            }
+
+
+
+            }
+    }
+
+    public void init_filter(){
+        b1.setOnAction(event -> handleCategoryButtonClick("B1"));
+        b2.setOnAction(event -> handleCategoryButtonClick("B2"));
+        b3.setOnAction(event -> handleCategoryButtonClick("B3"));
+        b4.setOnAction(event -> handleCategoryButtonClick("B4"));
+        b5.setOnAction(event -> handleCategoryButtonClick("B5"));
+        b6.setOnAction(event -> handleCategoryButtonClick("B6"));
+        b7.setOnAction(event -> handleCategoryButtonClick("B7"));
+        b8.setOnAction(event -> handleCategoryButtonClick("B8"));
+        b9.setOnAction(event -> handleCategoryButtonClick("B9"));
+        b11.setOnAction(event -> handleCategoryButtonClick("B11"));
+    }
+
+
+    
     private void handleItemButtonClick3(int itemIndex) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
         Product item = iMatDataHandler.getProduct(itemIndex);
@@ -246,41 +419,67 @@ public class MainViewController implements Initializable {
                     amount = 0; // Tar bort negativa värden
                     shoppingCart.removeItem(product1);
                 } else {
-                    product1.setAmount(amount); 
+                    product1.setAmount(amount);
                 }
-                break; 
+                break;
             }
         }
     
-        FlowPane loadedPane = (FlowPane) categoryContainer.getChildren().get(itemIndex - 1);
-        Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
-        numberLabel.setText(String.valueOf((int) amount));
+        FlowPane loadedPane = null;
+        for (Node child : categoryContainer.getChildren()) {
+            if (child instanceof FlowPane) {
+                Product childProduct = (Product) child.getUserData();
+                if (childProduct != null && childProduct == item) {
+                    loadedPane = (FlowPane) child;
+                    break;
+                }
+            }
+        }
+    
+        if (loadedPane != null) {
+            Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
+            numberLabel.setText(String.valueOf((int) amount));
+        }
     
         display_shoppingcart();
     }
-    
-    
-
-
 
     private void handleItemButtonClick(int itemIndex) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-        Product item = iMatDataHandler.getProduct(itemIndex); 
+        Product item = iMatDataHandler.getProduct(itemIndex);
         double amount = 0;
-        for (ShoppingItem product1 : shoppingCart.getItems()){
-            if (product1.getProduct() == item){
+        
+        for (ShoppingItem product1 : shoppingCart.getItems()) {
+            if (product1.getProduct() == item) {
                 amount = product1.getAmount() + 1;
             }
         }
-        if (amount == 0){
+        
+        if (amount == 0) {
             amount = 1;
         }
-        FlowPane loadedPane = (FlowPane) categoryContainer.getChildren().get(itemIndex - 1);
-        Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
-        numberLabel.setText(String.valueOf((int)amount));
+        
+        FlowPane loadedPane = null;
+        for (Node child : categoryContainer.getChildren()) {
+            if (child instanceof FlowPane) {
+                Product childProduct = (Product) child.getUserData();
+                if (childProduct != null && childProduct == item) {
+                    loadedPane = (FlowPane) child;
+                    break;
+                }
+            }
+        }
+        
+        if (loadedPane != null) {
+            Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
+            numberLabel.setText(String.valueOf((int) amount));
+        }
+        
         iMatDataHandler.getShoppingCart().addProduct(item);
         display_shoppingcart();
     }
+
+
 
 
     public void fontSetter(){
@@ -316,11 +515,18 @@ public class MainViewController implements Initializable {
     
     }
 
+    @FXML void handleCategoryButtonClick(String category){
+        System.out.println(category);
+        filter_items(category);
+    }
+
+
     @FXML
     private void clearShopping() {
         //Tar bort allt i varukorgen
+        load_items();
         List<Product> arr = iMatDataHandler.getProducts();
-        for (int i = 1; i < arr.size(); i++) {
+        for (int i = 1; i < arr.size()-1; i++) {
             FlowPane loadedPane = (FlowPane) categoryContainer.getChildren().get(i - 1);
             Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
             numberLabel.setText(String.valueOf(0));
@@ -328,6 +534,9 @@ public class MainViewController implements Initializable {
         iMatDataHandler.getShoppingCart().clear();
         display_shoppingcart();
     }
+
+
+
    
     @FXML
     private void togglekategori() {
