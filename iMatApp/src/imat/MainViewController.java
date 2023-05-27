@@ -71,6 +71,8 @@ public class MainViewController implements Initializable {
     HBox categoryTemplate;
     @FXML
     Button kategoriknapp;
+    @FXML
+    Pane graybackground;
 @FXML 
 Pane tidigarekoppopup;
 
@@ -329,14 +331,19 @@ Pane tidigarekoppopup;
     @FXML
     private void togglekategori() {
         kategorifilter.setVisible(!kategorifilter.isVisible());
+        checkbackground();
+
     }
     @FXML
     private void toggleSidebar() {
         kundvagnsidebar.setVisible(!kundvagnsidebar.isVisible());
+        checkbackground();
     }
+
     @FXML
     private void toggleTidigarekop() {
         tidigarekoppopup.setVisible(!tidigarekoppopup.isVisible());
+        checkbackground();
     }
     @FXML
     private void openNewPage() {
@@ -362,6 +369,14 @@ Pane tidigarekoppopup;
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    void checkbackground(){
+        if (kundvagnsidebar.isVisible() || tidigarekoppopup.isVisible() || kategorifilter.isVisible() ){
+            graybackground.setVisible(true);
+        }
+        else{
+            graybackground.setVisible(false);
         }
     }
 public void resetToStart(){
