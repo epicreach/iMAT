@@ -142,6 +142,7 @@ public class MainViewController implements Initializable {
         load_items();
         display_shoppingcart();
         init_filter();
+        //filter_items(lastFilter);
 
     }
 
@@ -196,9 +197,15 @@ public class MainViewController implements Initializable {
                 int itemIndex = item.getProductId(); // Sparar nuvarande index
                 itemButton.setOnAction(event -> {
                     handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
+                    if(categoryContainer.getChildren().size() >= 150){
+                        load_items();
+                    }
                 });
                 itemButton3.setOnAction(event ->{
                     handleItemButtonClick3(itemIndex);
+                    if(categoryContainer.getChildren().size() >= 150){
+                        load_items();
+                    }
                 });
 
 
@@ -258,6 +265,8 @@ public class MainViewController implements Initializable {
                     handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
                     if(categoryContainer.getChildren().size() < 150){
                         filter_items(lastFilter);
+                    }else{
+                        load_items();
                     }
                     
                 });
@@ -265,6 +274,8 @@ public class MainViewController implements Initializable {
                     handleItemButtonClick3(itemIndex);
                     if(categoryContainer.getChildren().size() < 150){
                         filter_items(lastFilter);
+                    }else{
+                        load_items();
                     }
                 });
 
