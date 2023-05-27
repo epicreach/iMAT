@@ -226,27 +226,36 @@ Pane tidigarekoppopup;
                 e.printStackTrace();
             }
         }
+        //System.out.println(null);
     }
 
 
-    private void handleItemButtonClick3(int itemIndex){
+
+    private void handleItemButtonClick3(int itemIndex) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-        Product item = iMatDataHandler.getProduct(itemIndex); 
+        Product item = iMatDataHandler.getProduct(itemIndex);
         double amount = 0;
-        for (ShoppingItem product1 : shoppingCart.getItems()){
-            if (product1.getProduct() == item){
+    
+        for (ShoppingItem product1 : shoppingCart.getItems()) {
+            if (product1.getProduct() == item) {
                 amount = product1.getAmount() - 1;
+                if (amount <= 0) {
+                    amount = 0; // Tar bort negativa värden
+                    shoppingCart.removeItem(product1);
+                } else {
+                    product1.setAmount(amount); 
+                }
+                break; 
             }
         }
-        if (amount == -1){
-            return;
-        }
+    
         FlowPane loadedPane = (FlowPane) categoryContainer.getChildren().get(itemIndex - 1);
         Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
-        numberLabel.setText(String.valueOf((int)amount));
-        iMatDataHandler.getShoppingCart().addProduct(item,-1);
+        numberLabel.setText(String.valueOf((int) amount));
+    
         display_shoppingcart();
     }
+    
     
 
 
