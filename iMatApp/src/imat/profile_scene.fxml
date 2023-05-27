@@ -108,6 +108,9 @@
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text layoutX="17.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adress:">
                <font>
@@ -124,10 +127,13 @@
                   <Font size="35.0" />
                </font>
             </Text>
-            <TextField fx:id="fornamnText" layoutX="304.0" layoutY="16.0" prefHeight="43.0" prefWidth="242.0" />
+            <TextField fx:id="fornamnText" layoutX="304.0" layoutY="16.0" prefHeight="43.0" prefWidth="242.0">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
             <TextField fx:id="efternamnText" layoutX="304.0" layoutY="69.0" prefHeight="43.0" prefWidth="242.0" />
             <TextField fx:id="adressText" layoutX="305.0" layoutY="164.0" prefHeight="43.0" prefWidth="242.0" />
-            <TextField fx:id="mobilTexta" layoutX="305.0" layoutY="263.0" prefHeight="43.0" prefWidth="242.0" />
+            <TextField fx:id="mobilText" layoutX="305.0" layoutY="263.0" prefHeight="43.0" prefWidth="242.0" />
             <TextField fx:id="postText" layoutX="305.0" layoutY="213.0" prefHeight="43.0" prefWidth="242.0" />
             <Text layoutX="14.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mejl">
                <font>

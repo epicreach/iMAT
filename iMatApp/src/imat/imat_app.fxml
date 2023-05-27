@@ -89,14 +89,14 @@
             </StackPane>
          </center>
       </BorderPane>
-      <StackPane layoutX="-5.0" layoutY="156.0" prefHeight="540.0" prefWidth="1000.0">
+      <StackPane fx:id="graybackground" layoutX="-5.0" layoutY="156.0" prefHeight="540.0" prefWidth="1000.0" visible="false">
          <children>
-            <Pane fx:id="graybackground" opacity="0.59" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" visible="false" />
+            <Pane opacity="0.59" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" />
          </children>
       </StackPane>
-      <StackPane layoutY="153.0" prefHeight="150.0" prefWidth="200.0">
+      <StackPane fx:id="kundvagnsidebar" layoutY="153.0" prefHeight="150.0" prefWidth="200.0" visible="false">
          <children>
-            <AnchorPane fx:id="kundvagnsidebar" layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="461.0" style="-fx-background-color: #FFFFFF;" translateX="540.0" translateY="4.0" visible="false">
+            <AnchorPane layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="461.0" style="-fx-background-color: #FFFFFF;" translateX="540.0" translateY="4.0">
                <children>
                   <Button layoutX="16.0" layoutY="14.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="46.0" prefWidth="157.0" style="-fx-background-color: #7DB1FF;" text="Stäng Varukorg">
                      <font>
@@ -151,9 +151,9 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <StackPane layoutY="152.0" prefHeight="511.0" prefWidth="350.0">
+      <StackPane fx:id="kategorifilter" layoutY="152.0" prefHeight="511.0" prefWidth="350.0" visible="false">
          <children>
-            <AnchorPane fx:id="kategorifilter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" style="-fx-background-color: white;" translateX="-78.0" visible="false">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" style="-fx-background-color: white;" translateX="-78.0">
                <children>
                   <Pane layoutY="118.0" prefHeight="427.0" prefWidth="195.0" style="-fx-background-color: #d3d3d3;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="118.0">
                      <children>

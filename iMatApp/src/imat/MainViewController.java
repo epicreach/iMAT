@@ -23,6 +23,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -47,7 +48,7 @@ public class MainViewController implements Initializable {
     BorderPane mainID;
 
   @FXML
-  AnchorPane kategorifilter;
+  StackPane kategorifilter;
 
     @FXML
     Label productName;
@@ -64,7 +65,7 @@ public class MainViewController implements Initializable {
     @FXML
     Button favoriterbutton;
     @FXML
-    Pane kundvagnsidebar;
+    StackPane kundvagnsidebar;
     @FXML
     Button profilbutton;
     @FXML
@@ -73,8 +74,8 @@ public class MainViewController implements Initializable {
     Button kategoriknapp;
     @FXML
     Pane graybackground;
-@FXML 
-Pane tidigarekoppopup;
+    @FXML 
+    StackPane tidigarekoppopup;
 
     @FXML
     Button jamforkopvagnbutton;
