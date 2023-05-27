@@ -153,7 +153,7 @@
       </StackPane>
       <StackPane layoutY="152.0" prefHeight="511.0" prefWidth="350.0">
          <children>
-            <AnchorPane fx:id="kategorifilter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" style="-fx-background-color: white;" translateX="-78.0">
+            <AnchorPane fx:id="kategorifilter" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" style="-fx-background-color: white;" translateX="-78.0" visible="false">
                <children>
                   <Pane layoutY="118.0" prefHeight="427.0" prefWidth="195.0" style="-fx-background-color: #d3d3d3;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="118.0">
                      <children>
@@ -221,7 +221,7 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <StackPane prefHeight="427.0" prefWidth="380.0">
+      <StackPane fx:id="tidigarekoppopup" layoutY="153.0" prefHeight="427.0" prefWidth="380.0" visible="false">
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="450.0" style="-fx-background-color: #FFFFFF;">
                <children>

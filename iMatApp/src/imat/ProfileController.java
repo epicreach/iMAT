@@ -9,10 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import se.chalmers.cse.dat216.project.Customer;
+import se.chalmers.cse.dat216.project.IMatDataHandler;
 import javafx.scene.Node;
 
 import java.io.File;
@@ -34,11 +37,54 @@ public class ProfileController implements Initializable {
     private ImageView profilepicture;
     @FXML
     ImageView imatLogo;
+    @FXML
+    TextField fornamnText;
+    @FXML
+    TextField efternamnText;
+    @FXML
+    TextField mejlText;
+    @FXML
+    TextField adressText;
+    @FXML
+    TextField postText;
+    @FXML
+    TextField mobilText;
+
+    IMatDataHandler iMatDataHandler = IMatDataHandler.getInstance();
+    Customer customer = iMatDataHandler.getCustomer();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         imageSetter();
         imatLogo.setOnMouseClicked(event -> goBack(event));
+        fornamnText.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setFirstName(newValue);
+        });
+        efternamnText.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setLastName(newValue);
+        });
+        adressText.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setAddress(newValue);
+        });
+
+        postText.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setPostAddress(newValue);
+        });
+
+        mejlText.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setEmail(newValue);
+        });
+
+        mobilText.textProperty().addListener((observable, oldValue, newValue) -> {
+            customer.setMobilePhoneNumber(newValue);
+        });
+
+        fornamnText.setText(customer.getFirstName());
+       efternamnText.setText(customer.getLastName());
+        adressText.setText(customer.getAddress());
+        postText.setText(customer.getPostAddress());
+        mejlText.setText(customer.getEmail());
+        mobilText.setText(customer.getMobilePhoneNumber());
     }
 
     
