@@ -128,13 +128,13 @@ public class MainViewController implements Initializable {
     Button b11;
     
     @FXML
-    Text ordernr1;
+    Label ordernr1;
     @FXML
     Label ordernr2;
     @FXML
     Label ordernr3;
     @FXML
-    Text orderdate1;
+    Label orderdate1;
     @FXML
     Label orderdate2;
     @FXML
