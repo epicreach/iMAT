@@ -16,8 +16,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -149,10 +151,8 @@ public class MainViewController implements Initializable {
 
     public void load_items() {
         categoryContainer.getChildren().clear();
-        //Kör igenom 7 objekt för tillfället, ska ändras när vi får ordning på kategorierna med filter.
         List<Product> prolist = iMatDataHandler.getProducts();
         for (Product p : prolist){
-        //for (int i = 1; i < 155; i++) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
             try {
                 AnchorPane loadedPane = fxmlLoader.load();
@@ -195,6 +195,25 @@ public class MainViewController implements Initializable {
                 Button itemButton3 = (Button) loadedPane.lookup("#tabortknapp");
                 // Eventhanterare för klicka köp.
                 int itemIndex = item.getProductId(); // Sparar nuvarande index
+                CheckBox fav = (CheckBox) loadedPane.lookup("#checkBox");
+                if(iMatDataHandler.isFavorite(item)){
+                    fav.setSelected(true);
+                    ToggleButton toggleButton = (ToggleButton) loadedPane.lookup("#toggleButton");
+                    ImageView heartImage = (ImageView) toggleButton.getGraphic();
+                    String imagePath = "iMatApp/src/imat/resources/heart2.png";
+                    Image image1 = new Image(new File(imagePath).toURI().toString());
+                    heartImage.setImage(image1);
+                }
+                fav.setOnAction(event -> {
+                    if(fav.isSelected()){
+                        addfav(itemIndex);
+                        }
+                        else{
+                        removefav(itemIndex);
+                        }
+                        load_items();
+                }
+                );
                 itemButton.setOnAction(event -> {
                     handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
                     if(categoryContainer.getChildren().size() >= 150){
@@ -260,7 +279,30 @@ public class MainViewController implements Initializable {
                 Button itemButton3 = (Button) loadedPane.lookup("#tabortknapp");
                 // Eventhanterare för klicka köp.
                 int itemIndex = item.getProductId();
-
+                CheckBox fav = (CheckBox) loadedPane.lookup("#checkBox");
+                if(iMatDataHandler.isFavorite(item)){
+                    fav.setSelected(true);
+                    ToggleButton toggleButton = (ToggleButton) loadedPane.lookup("#toggleButton");
+                    ImageView heartImage = (ImageView) toggleButton.getGraphic();
+                    String imagePath = "iMatApp/src/imat/resources/heart2.png";
+                    Image image1 = new Image(new File(imagePath).toURI().toString());
+                    heartImage.setImage(image1);
+                }
+                //CheckBox favBox = (CheckBox) loadedPane.lookup("#checkBox");
+                fav.setOnAction(event -> {
+                    if(fav.isSelected()){
+                        addfav(itemIndex);
+                        }
+                        else{
+                        removefav(itemIndex);
+                        }
+                    if(categoryContainer.getChildren().size() < 150){
+                        filter_items(lastFilter);
+                    }else{
+                        load_items();
+                    }
+                }
+                );
                 itemButton.setOnAction(event -> {
                     handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
                     if(categoryContainer.getChildren().size() < 150){
@@ -283,7 +325,6 @@ public class MainViewController implements Initializable {
                 e.printStackTrace();
             }
         }
-        //System.out.println(null);
     }
 
     public List<ProductCategory> convert_productcategory(String input){
@@ -327,6 +368,9 @@ public class MainViewController implements Initializable {
             for(ProductCategory pro : all){
             list.add(pro);
         }
+    }
+        else if(input.equals("B12")){
+            return(list);
         }
         return(list);
         //return null;
@@ -335,11 +379,16 @@ public class MainViewController implements Initializable {
     public void filter_items(String input) {
         categoryContainer.getChildren().clear();
         List<ProductCategory> procat = convert_productcategory(input);
+
         List<Product> items = new ArrayList<>();
         for(ProductCategory productcat : procat){
             for(Product pro : iMatDataHandler.getProducts(productcat)){
                 items.add(pro);
             }
+        }
+        if(items.size() == 0){
+            items = iMatDataHandler.favorites();
+            
         }
         for (Product p : items){
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
@@ -357,7 +406,7 @@ public class MainViewController implements Initializable {
                 ImageView produktbild = (ImageView) loadedPane.lookup("#produktbild");
                 Label produktnamn = (Label) loadedPane.lookup("#produktnamn");
                 Text produktpris = (Text) loadedPane.lookup("#produktpris");
-                
+
                 // Hämtar datan om produkt
                 Product item = p;
                 Image image = iMatDataHandler.getFXImage(item);
@@ -382,8 +431,31 @@ public class MainViewController implements Initializable {
                 
                 Button itemButton = (Button) loadedPane.lookup("#laggtillknaop");
                 Button itemButton3 = (Button) loadedPane.lookup("#tabortknapp");
+                
+                int itemIndex = item.getProductId();// Sparar nuvarande index
+                CheckBox fav = (CheckBox) loadedPane.lookup("#checkBox");
+                if(iMatDataHandler.isFavorite(item)){
+                    fav.setSelected(true);
+                    ToggleButton toggleButton = (ToggleButton) loadedPane.lookup("#toggleButton");
+                    ImageView heartImage = (ImageView) toggleButton.getGraphic();
+                    String imagePath = "iMatApp/src/imat/resources/heart2.png";
+                    Image image1 = new Image(new File(imagePath).toURI().toString());
+                    heartImage.setImage(image1);
+                }
+                
+
+                //CheckBox favBox = (CheckBox) loadedPane.lookup("#checkBox");
+                fav.setOnAction(event -> {
+                    if(fav.isSelected()){
+                        addfav(itemIndex);
+                        }
+                        else{
+                        removefav(itemIndex);
+                        }
+                        filter_items(input);
+                });
                 // Eventhanterare för klicka köp.
-                int itemIndex = item.getProductId(); // Sparar nuvarande index
+                 
                 itemButton.setOnAction(event -> {
                     handleItemButtonClick(itemIndex); //Funktion för vad som händer vid klick
                     filter_items(input);
@@ -414,8 +486,22 @@ public class MainViewController implements Initializable {
         b8.setOnAction(event -> handleCategoryButtonClick("B8"));
         b9.setOnAction(event -> handleCategoryButtonClick("B9"));
         b11.setOnAction(event -> handleCategoryButtonClick("B11"));
+        favoriterbutton.setOnAction(event -> handleCategoryButtonClick("B12"));
     }
 
+
+    private void addfav(int itemIndex) {
+        System.out.println("123");
+        Product item = iMatDataHandler.getProduct(itemIndex);
+        iMatDataHandler.addFavorite(item);
+        display_shoppingcart();
+    }
+
+    private void removefav(int itemIndex){
+        Product item = iMatDataHandler.getProduct(itemIndex);
+        iMatDataHandler.removeFavorite(item);
+        display_shoppingcart();
+    }
 
     
     private void handleItemButtonClick3(int itemIndex) {
@@ -435,23 +521,7 @@ public class MainViewController implements Initializable {
                 break;
             }
         }
-    
-        FlowPane loadedPane = null;
-        for (Node child : categoryContainer.getChildren()) {
-            if (child instanceof FlowPane) {
-                Product childProduct = (Product) child.getUserData();
-                if (childProduct != null && childProduct == item) {
-                    loadedPane = (FlowPane) child;
-                    break;
-                }
-            }
-        }
-    
-        if (loadedPane != null) {
-            Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
-            numberLabel.setText(String.valueOf((int) amount));
-        }
-    
+
         display_shoppingcart();
     }
 
@@ -468,22 +538,6 @@ public class MainViewController implements Initializable {
         
         if (amount == 0) {
             amount = 1;
-        }
-        
-        FlowPane loadedPane = null;
-        for (Node child : categoryContainer.getChildren()) {
-            if (child instanceof FlowPane) {
-                Product childProduct = (Product) child.getUserData();
-                if (childProduct != null && childProduct == item) {
-                    loadedPane = (FlowPane) child;
-                    break;
-                }
-            }
-        }
-        
-        if (loadedPane != null) {
-            Text numberLabel = (Text) loadedPane.lookup("#numberofitems");
-            numberLabel.setText(String.valueOf((int) amount));
         }
         
         iMatDataHandler.getShoppingCart().addProduct(item);
@@ -525,6 +579,7 @@ public class MainViewController implements Initializable {
         kundvagnbutton.setGraphic(hbox);
     
     }
+
 
     @FXML void handleCategoryButtonClick(String category){
         System.out.println(category);
