@@ -17,7 +17,7 @@
    <children>
       <Pane fx:id="imagePane" layoutY="-4.0" prefHeight="234.0" prefWidth="200.0" style="-fx-background-color: #7DB1FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-4.0">
          <children>
-            <ImageView fx:id="produktbild" fitHeight="139.0" fitWidth="216.0" layoutY="14.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="produktbild" fitHeight="139.0" fitWidth="192.0" layoutX="9.0" layoutY="14.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -51,21 +51,21 @@
                   </Text>
                </children>
             </Pane>
-            <StackPane layoutX="148.0" layoutY="7.0" prefHeight="37.0" prefWidth="43.0">
-               <children>
-                  <ToggleButton fx:id="toggleButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0">
-                     <graphic>
-                        <ImageView fx:id="heart" fitHeight="28.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@resources/heart1.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </ToggleButton>
-               </children>
-            </StackPane>
          </children>
       </Pane>
-      <CheckBox fx:id="checkBox" alignment="CENTER" layoutX="179.0" mnemonicParsing="false" opacity="0.0" prefHeight="40.0" prefWidth="39.0" scaleX="2.5" scaleY="2.5" />
+      <StackPane layoutX="157.0" prefHeight="37.0" prefWidth="43.0">
+         <children>
+            <ToggleButton fx:id="toggleButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0">
+               <graphic>
+                  <ImageView fx:id="heart" fitHeight="28.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/heart1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <CheckBox fx:id="checkBox" mnemonicParsing="false" opacity="0.0" prefHeight="24.0" prefWidth="20.0" style="-fx-background-color: transparent;" />
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>
