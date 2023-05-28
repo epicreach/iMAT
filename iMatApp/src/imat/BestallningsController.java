@@ -2,6 +2,7 @@ package imat;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -30,8 +31,10 @@ public class BestallningsController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
         double sum = shoppingCart.getTotal();
-        totalsummaText.setText("Total summan: " + String.valueOf(sum) + " kr");
+        String formattedSum = String.format("%.2f", sum);
+        totalsummaText.setText("Total summan: " + formattedSum + " kr");
         skickatillText.setText("Din beställning skickas till: " + customer.getAddress());
     }
     @FXML

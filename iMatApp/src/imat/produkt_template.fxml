@@ -51,22 +51,21 @@
                   </Text>
                </children>
             </Pane>
-            <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Favorit" />
-            <CheckBox fx:id="checkBox" layoutX="56.0" layoutY="2.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="20.0" />
+            <StackPane layoutX="148.0" layoutY="7.0" prefHeight="37.0" prefWidth="43.0">
+               <children>
+                  <ToggleButton fx:id="toggleButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0">
+                     <graphic>
+                        <ImageView fx:id="heart" fitHeight="28.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/heart1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+               </children>
+            </StackPane>
          </children>
       </Pane>
-      <StackPane layoutX="157.0" prefHeight="37.0" prefWidth="43.0">
-         <children>
-            <ToggleButton fx:id="toggleButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0">
-               <graphic>
-                  <ImageView fx:id="heart" fitHeight="28.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/heart1.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </ToggleButton>
-         </children>
-      </StackPane>
+      <CheckBox fx:id="checkBox" alignment="CENTER" layoutX="179.0" mnemonicParsing="false" opacity="0.0" prefHeight="40.0" prefWidth="39.0" scaleX="2.5" scaleY="2.5" />
    </children>
 </AnchorPane>

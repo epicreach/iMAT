@@ -2,7 +2,9 @@
 package imat;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.io.File;
@@ -33,6 +35,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ProductCategory;
 import se.chalmers.cse.dat216.project.ShoppingCart;
@@ -123,6 +126,20 @@ public class MainViewController implements Initializable {
 
     @FXML
     Button b11;
+    
+    @FXML
+    Text ordernr1;
+    @FXML
+    Label ordernr2;
+    @FXML
+    Label ordernr3;
+    @FXML
+    Text orderdate1;
+    @FXML
+    Label orderdate2;
+    @FXML
+    Label orderdate3;
+
 
 
 
@@ -179,7 +196,9 @@ public class MainViewController implements Initializable {
 
                 double sum = shoppingCart.getTotal();
                 Text numberofitems = (Text) loadedPane.lookup("#numberofitems");
-                summa.setText(String.valueOf(sum) + " kr");
+                String formattedSum = String.format("%.2f", sum);
+                
+                summa.setText(formattedSum + " kr");
                 for (ShoppingItem product1 : shoppingCart.getItems()) {
                     if(product1.getProduct() == item){
                     numberofitems.setText(String.valueOf((int)product1.getAmount()));
@@ -243,7 +262,8 @@ public class MainViewController implements Initializable {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
         int i = 1;
         double sum = shoppingCart.getTotal();
-        summa.setText(String.valueOf(sum) + " kr");
+        String formattedSum = String.format("%.2f", sum);
+        summa.setText(formattedSum + " kr");
         for (ShoppingItem product1 : shoppingCart.getItems()) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("produkt_template.fxml"));
             try {
@@ -417,7 +437,8 @@ public class MainViewController implements Initializable {
 
                 double sum = shoppingCart.getTotal();
                 Text numberofitems = (Text) loadedPane.lookup("#numberofitems");
-                summa.setText(String.valueOf(sum) + " kr");
+                String formattedSum = String.format("%.2f", sum);
+                summa.setText(formattedSum + " kr");
                 for (ShoppingItem product1 : shoppingCart.getItems()) {
                     if(product1.getProduct() == item){
                     numberofitems.setText(String.valueOf((int)product1.getAmount()));
@@ -619,8 +640,74 @@ public class MainViewController implements Initializable {
     @FXML
     private void toggleTidigarekop() {
         tidigarekoppopup.setVisible(!tidigarekoppopup.isVisible());
-        checkbackground();
-    }
+        
+        List<Order> orderlist = iMatDataHandler.getOrders();
+        
+        if(orderlist.size() == 1){
+            Order order = orderlist.get(0);
+            Integer ordernr = order.getOrderNumber();
+            Date orderdate = order.getDate();
+            ordernr1.setText(Integer.toString(ordernr));
+             
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            String dateString = dateFormat.format(orderdate);
+            orderdate1.setText(dateString);
+        }
+           else if(orderlist.size() == 2){
+            Order order = orderlist.get(0);
+            Integer ordernr = order.getOrderNumber();
+            Date orderdate = order.getDate();
+            ordernr1.setText(Integer.toString(ordernr));
+             
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+            String dateString = dateFormat.format(orderdate);
+            
+            orderdate1.setText(dateString);
+                Order localorder2 = orderlist.get(1);
+                Integer localordernr2 = localorder2.getOrderNumber();
+                Date localorderdate2 = localorder2.getDate();
+                ordernr2.setText(Integer.toString(localordernr2));
+                 
+                SimpleDateFormat localdateFormat2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                String localdateString2 = localdateFormat2.format(localorderdate2);
+                orderdate2.setText(localdateString2);
+           }
+            else if(orderlist.size() == 3){
+                Order order = orderlist.get(0);
+                Integer ordernr = order.getOrderNumber();
+                Date orderdate = order.getDate();
+                ordernr3.setText(Integer.toString(ordernr));
+                 
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                String dateString = dateFormat.format(orderdate);
+                
+                orderdate1.setText(dateString);
+                    Order localorder2 = orderlist.get(1);
+                    Integer localordernr2 = localorder2.getOrderNumber();
+                    Date localorderdate2 = localorder2.getDate();
+                    ordernr2.setText(Integer.toString(localordernr2));
+                     
+                    SimpleDateFormat localdateFormat2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                    String localdateString2 = localdateFormat2.format(localorderdate2);
+                    orderdate2.setText(localdateString2);
+                
+                Order localorder3 = orderlist.get(2);
+                Integer localordernr3 = localorder3.getOrderNumber();
+                Date localorderdate3 = localorder3.getDate();
+                ordernr3.setText(Integer.toString(localordernr3));
+                 
+                SimpleDateFormat localdateFormat3 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                String localdateString3 = localdateFormat3.format(localorderdate3);
+                orderdate3.setText(localdateString3);
+                }
+                if(orderlist.size() > 3){
+                    
+                }
+                checkbackground();
+            }
+        
+        
+    
     @FXML
     private void openNewPage() {
         try {

@@ -27,7 +27,7 @@ public class PersonUppgifterController implements Initializable{
     @FXML
     Button hembutton;
     @FXML
-    Text bokstavfelnamn;
+    Text bokstavsfel;
     @FXML
     Button frgndbutton;
     @FXML
@@ -139,11 +139,30 @@ public  boolean isValidEmail(String email) {
  boolean isValidName(String name){
 
     if (name == null || name.isEmpty()) {
+        bokstavsfel.setVisible(false);
         nullnamnfel.setVisible(true);
         return false;
     }
-
+    
+    // Name should contain only alphabetic characters and spaces
+    for (char c : name.toCharArray()) {
+        if (!Character.isLetter(c) && c != ' ') {
+            nullnamnfel.setVisible(false);
+            bokstavsfel.setVisible(true);
+            return false;
+        }
+    }
+    
+    // Name should have at least two characters (to allow for first and last name)
+    if (name.trim().length() < 2) {
+        bokstavsfel.setVisible(false);
+        nullnamnfel.setVisible(true);
+        return false;
+    }
+    
+    // All checks passed, name is valid
     nullnamnfel.setVisible(false);
+    bokstavsfel.setVisible(false);
     return true;
 }
 
@@ -158,7 +177,15 @@ boolean isValidMobil(String phoneNumber){
 
     // Check if the phone number has a valid format
     Pattern pattern = Pattern.compile("^\\d{10}$"); // Assumes a 10-digit phone number
-    mobilfel.setVisible(false);
-    return pattern.matcher(digitsOnly).matches();
+    if(!pattern.matcher(digitsOnly).matches()){
+        mobilfel.setVisible(true);
+        return false;
+    }
+    else{
+        mobilfel.setVisible(false);
+        return true;
+    }
+  
+   
 }
 }
