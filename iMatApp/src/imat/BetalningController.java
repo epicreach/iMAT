@@ -55,7 +55,7 @@ public class BetalningController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         kortcombobox.getItems().addAll("Kort", "Swish");
         kortcombobox.setValue("Kort");
-        togglekort();
+        kortPane.setVisible(true);
         kortcombobox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 if (newValue.equals("Kort")) {

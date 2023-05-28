@@ -48,5 +48,19 @@ public class LeveransController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 }
+    @FXML
+    private void goBestallning(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Beställnings_bekräftelse.fxml"));
+            Parent mainViewRoot = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+            stage.setScene(new Scene(mainViewRoot));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

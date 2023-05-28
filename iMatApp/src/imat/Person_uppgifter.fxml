@@ -37,25 +37,25 @@
                </graphic></Button>
          </items>
       </ToolBar>
-      <Label layoutX="200.0" layoutY="326.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Adress:" />
-      <Label layoutX="200.0" layoutY="462.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Mejladress:" />
-      <Label layoutX="200.0" layoutY="394.0" prefHeight="28.0" prefWidth="127.0" stylesheets="@imat_app.css" text="Postnummer:">
+      <Label layoutX="202.0" layoutY="350.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Adress:" />
+      <Label layoutX="202.0" layoutY="486.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Mejladress:" />
+      <Label layoutX="202.0" layoutY="418.0" prefHeight="28.0" prefWidth="127.0" stylesheets="@imat_app.css" text="Postnummer:">
          <styleClass>
             <String fx:value="textal" />
             <String fx:value="text-bigger" />
          </styleClass>
       </Label>
-      <Label layoutX="200.0" layoutY="530.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Telefonnummer:" />
-      <TextField fx:id="postTextField" layoutX="500.0" layoutY="389.0" prefHeight="37.0" prefWidth="306.0" />
-      <TextField fx:id="emailTextField" layoutX="500.0" layoutY="457.0" prefHeight="37.0" prefWidth="306.0" />
-      <TextField fx:id="mobilTextField" layoutX="500.0" layoutY="525.0" prefHeight="37.0" prefWidth="306.0" />
+      <Label layoutX="202.0" layoutY="554.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Telefonnummer:" />
+      <TextField fx:id="postTextField" layoutX="502.0" layoutY="413.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField fx:id="emailTextField" layoutX="502.0" layoutY="481.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField fx:id="mobilTextField" layoutX="502.0" layoutY="549.0" prefHeight="37.0" prefWidth="306.0" />
       <Button fx:id="nastasida" layoutX="628.0" layoutY="595.0" mnemonicParsing="false" onAction="#openNewPage" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Bekräfta och fortsätt          ">
          <styleClass>
             <String fx:value="text-bigger" />
             <String fx:value="pay-och-done-button" />
          </styleClass>
       </Button>
-      <TextField fx:id="adressTextField" layoutX="500.0" layoutY="323.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField fx:id="adressTextField" layoutX="502.0" layoutY="347.0" prefHeight="37.0" prefWidth="306.0" />
       <Text layoutX="257.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personuppgifter " underline="true" />
       <Circle fill="#bcc9d4" layoutX="505.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Separator layoutX="372.0" layoutY="101.0" prefHeight="3.0" prefWidth="100.0" />
@@ -63,7 +63,7 @@
       <Text layoutX="446.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Betalningssätt" />
       <Circle fill="#bcc9d4" layoutX="676.0" layoutY="103.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
       <Text layoutX="625.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leveransdetaljer" />
-      <Label layoutX="199.0" layoutY="263.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="För- och efternamn" />
+      <Label layoutX="201.0" layoutY="287.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Efternamn:" />
       <ImageView blendMode="MULTIPLY" fitHeight="36.0" fitWidth="46.0" layoutX="658.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Leverans.jpg" />
@@ -83,12 +83,18 @@
             <Image url="@resources/Betalningssätt.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="namnTextField" layoutX="500.0" layoutY="258.0" prefHeight="37.0" prefWidth="306.0" />
+      <TextField fx:id="efternamnText" layoutX="502.0" layoutY="282.0" prefHeight="37.0" prefWidth="306.0" />
       <ImageView blendMode="MULTIPLY" fitHeight="46.0" fitWidth="46.0" layoutX="843.0" layoutY="608.0" onMouseClicked="#openNewPage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Näsa.jpg" />
          </image>
       </ImageView>
+      <Text fx:id="ogiltligmejl" fill="RED" layoutX="819.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ogiltlig Mejl" visible="false" AnchorPane.bottomAnchor="204.0" AnchorPane.leftAnchor="819.0" AnchorPane.rightAnchor="86.1640625" AnchorPane.topAnchor="463.4" />
+      <Text fx:id="bokstavsfel" fill="RED" layoutX="820.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ditt namn får endast innehålla bokstäver" visible="false" wrappingWidth="155.890625" />
+      <Text fx:id="mobilfel" fill="RED" layoutX="819.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Måste vara 10-siffror" visible="false" />
+      <TextField fx:id="namnTextField" layoutX="502.0" layoutY="222.0" prefHeight="37.0" prefWidth="306.0" />
+      <Label layoutX="201.0" layoutY="227.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Förnamn:" />
+      <Text fx:id="nullnamnfel" fill="RED" layoutX="559.0" layoutY="278.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Du måste skriva ditt namn" visible="false" />
    </children>
    <styleClass>
       <String fx:value="text-normal" />

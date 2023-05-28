@@ -151,7 +151,7 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <StackPane fx:id="kategorifilter" layoutY="152.0" prefHeight="511.0" prefWidth="350.0">
+      <StackPane fx:id="kategorifilter" layoutY="152.0" prefHeight="511.0" prefWidth="350.0" visible="false">
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" style="-fx-background-color: white;" translateX="-78.0">
                <children>

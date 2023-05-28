@@ -41,7 +41,7 @@
             </Button>
          </items>
       </ToolBar>
-      <Button fx:id="nastasida" layoutX="627.0" layoutY="557.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Slutför köp">
+      <Button fx:id="nastasida" layoutX="627.0" layoutY="557.0" mnemonicParsing="false" onAction="#goBestallning" prefHeight="71.0" prefWidth="270.0" stylesheets="@imat_app.css" text="Slutför köp">
          <styleClass>
             <String fx:value="text-bigger" />
             <String fx:value="pay-och-done-button" />
@@ -81,7 +81,10 @@
       <Label layoutX="239.0" layoutY="266.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Välj leveransdag:" />
       <Label layoutX="239.0" layoutY="403.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Välj leveranstid:" />
       <ComboBox fx:id="leveranstidcombo" layoutX="553.0" layoutY="399.0" prefHeight="46.0" prefWidth="220.0" visibleRowCount="7" />
-      <Label layoutX="139.0" layoutY="557.0" prefHeight="71.0" prefWidth="270.0" style="-fx-background-color: White;" stylesheets="@imat_app.css" text="Total summa:" />
+      <Label layoutX="139.0" layoutY="557.0" prefHeight="71.0" prefWidth="270.0" style="-fx-background-color: transparent;" stylesheets="@imat_app.css" text="Total summa:">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font></Label>
    </children>
    <styleClass>
       <String fx:value="text-normal" />
