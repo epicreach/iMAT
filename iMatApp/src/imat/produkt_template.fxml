@@ -17,7 +17,7 @@
    <children>
       <Pane fx:id="imagePane" layoutY="-4.0" prefHeight="234.0" prefWidth="200.0" style="-fx-background-color: #7DB1FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-4.0">
          <children>
-            <ImageView fx:id="produktbild" fitHeight="139.0" fitWidth="216.0" layoutY="14.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="produktbild" fitHeight="139.0" fitWidth="192.0" layoutX="9.0" layoutY="14.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -51,8 +51,6 @@
                   </Text>
                </children>
             </Pane>
-            <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Favorit" />
-            <CheckBox fx:id="checkBox" layoutX="56.0" layoutY="2.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="20.0" />
          </children>
       </Pane>
       <StackPane layoutX="157.0" prefHeight="37.0" prefWidth="43.0">
@@ -66,6 +64,7 @@
                   </ImageView>
                </graphic>
             </ToggleButton>
+            <CheckBox fx:id="checkBox" mnemonicParsing="false" opacity="0.0" prefHeight="24.0" prefWidth="20.0" style="-fx-background-color: transparent;" />
          </children>
       </StackPane>
    </children>
