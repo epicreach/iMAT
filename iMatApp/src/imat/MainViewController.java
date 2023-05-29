@@ -700,9 +700,6 @@ public class MainViewController implements Initializable {
                 String localdateString3 = localdateFormat3.format(localorderdate3);
                 orderdate3.setText(localdateString3);
                 }
-                if(orderlist.size() > 3){
-                    
-                }
                 checkbackground();
             }
         
