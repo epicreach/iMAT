@@ -62,7 +62,7 @@ public class LeveransController implements Initializable {
         try {
             
             iMatDataHandler.placeOrder(true);
-            iMatDataHandler.getShoppingCart().clear();
+            //iMatDataHandler.getShoppingCart().clear();
             
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Beställnings_bekräftelse.fxml"));
