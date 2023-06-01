@@ -280,7 +280,7 @@
                   </AnchorPane>
                   <ScrollPane fx:id="order1scrollpane" layoutY="93.0" prefHeight="455.0" prefWidth="450.0" visible="false">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="450.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="450.0">
                            <children>
                               <FlowPane fx:id="orderflowpane" prefHeight="498.0" prefWidth="450.0" />
                               <Button mnemonicParsing="false" onAction="#order1notvisible" prefHeight="50.0" prefWidth="101.0" style="-fx-background-color: #7DB1FF;" text="Stäng">
