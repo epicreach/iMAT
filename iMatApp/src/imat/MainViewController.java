@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -126,7 +127,8 @@ public class MainViewController implements Initializable {
 
     @FXML
     Button b11;
-    
+    @FXML
+    AnchorPane order1anchor;
     @FXML
     Label ordernr1;
     @FXML
@@ -139,8 +141,23 @@ public class MainViewController implements Initializable {
     Label orderdate2;
     @FXML
     Label orderdate3;
-
-
+    @FXML
+    AnchorPane order3anchor;
+    @FXML
+    AnchorPane order2anchor;
+    @FXML
+    ScrollPane order1scrollpane;
+    @FXML
+    ScrollPane order2scrollpane;
+    @FXML
+    ScrollPane order3scrollpane;
+    @FXML
+    FlowPane orderflowpane;
+    @FXML
+    FlowPane orderflowpane1;
+    @FXML
+    FlowPane orderflowpane11;
+    
 
 
     int currentIndex = 1;
@@ -602,6 +619,7 @@ public class MainViewController implements Initializable {
     }
 
 
+
     @FXML void handleCategoryButtonClick(String category){
         System.out.println(category);
         filter_items(category);
@@ -642,8 +660,12 @@ public class MainViewController implements Initializable {
         tidigarekoppopup.setVisible(!tidigarekoppopup.isVisible());
         
         List<Order> orderlist = iMatDataHandler.getOrders();
-        
-        if(orderlist.size() == 1){
+        if (orderlist.size() == 0){
+            order1anchor.setVisible(false);
+            order2anchor.setVisible(false);
+            order3anchor.setVisible(false);
+        }
+        else if(orderlist.size() == 1){
             Order order = orderlist.get(0);
             Integer ordernr = order.getOrderNumber();
             Date orderdate = order.getDate();
@@ -652,6 +674,8 @@ public class MainViewController implements Initializable {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             String dateString = dateFormat.format(orderdate);
             orderdate1.setText(dateString);
+            order2anchor.setVisible(false);
+            order3anchor.setVisible(false);
         }
            else if(orderlist.size() == 2){
             Order order = orderlist.get(0);
@@ -671,6 +695,8 @@ public class MainViewController implements Initializable {
                 SimpleDateFormat localdateFormat2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 String localdateString2 = localdateFormat2.format(localorderdate2);
                 orderdate2.setText(localdateString2);
+                order2anchor.setVisible(true);
+                order3anchor.setVisible(false);
            }
             else if(orderlist.size() == 3){
                 Order order = orderlist.get(0);
@@ -699,12 +725,175 @@ public class MainViewController implements Initializable {
                 SimpleDateFormat localdateFormat3 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 String localdateString3 = localdateFormat3.format(localorderdate3);
                 orderdate3.setText(localdateString3);
+                order1anchor.setVisible(true);
+                order2anchor.setVisible(true);
+                order3anchor.setVisible(true);
                 }
                 checkbackground();
             }
         
         
+    @FXML void order1visible(){
+        order1scrollpane.setVisible(true);
+        orderflowpane.getChildren().clear();
+        int i = 1;
+        List<Order> temp = iMatDataHandler.getOrders();
+        if(temp.size() == 0){
+            return;
+        }
+        Order test = temp.get(0);
+        System.out.println(temp);
+        List<ShoppingItem> abc = test.getItems();
+        for (ShoppingItem ord : abc) {
+            //List<ShoppingItem> product1 = ord.getItems();
+            //produkt1
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tomprodukttemplete.fxml"));
+            try {
+                i += 1;
+                AnchorPane loadedPane = fxmlLoader.load();
+
+                
+                FlowPane loadedContainer = new FlowPane(loadedPane);
+                loadedContainer.setAlignment(Pos.TOP_LEFT);
+                loadedContainer.setPrefWidth(201);
+                
+
+
+                orderflowpane.getChildren().add(loadedContainer);
     
+                // Hittar rätt fxid med hjälp av .lookup.
+                ImageView produktbild = (ImageView) loadedPane.lookup("#historyproduktbild");
+                Label produktnamn = (Label) loadedPane.lookup("#historyproduktnamn");
+                Text produktpris = (Text) loadedPane.lookup("#historyproduktpris");
+                Text numberofitems = (Text) loadedPane.lookup("#historynumberofitems");
+                // Hämtar datan om produkt
+                Product item = ord.getProduct();
+                Image image = iMatDataHandler.getFXImage(item);
+                String text = item.getName();
+                Double price = item.getPrice();
+                produktpris.setText(price.toString() + " kr");
+                produktnamn.setText(text);
+                produktbild.setImage(image);
+                numberofitems.setText(String.valueOf((int)ord.getAmount()));
+
+                
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+   
+    }
+    @FXML void order2visible(){
+        order2scrollpane.setVisible(true);
+        orderflowpane1.getChildren().clear();
+        int i = 1;
+        List<Order> temp = iMatDataHandler.getOrders();
+        if(temp.size() < 1){
+            return;
+        }
+        Order test = temp.get(1);
+        
+        System.out.println(temp);
+        List<ShoppingItem> abc = test.getItems();
+        for (ShoppingItem ord : abc) {
+            //List<ShoppingItem> product1 = ord.getItems();
+            //produkt1
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tomprodukttemplete.fxml"));
+            try {
+                i += 1;
+                AnchorPane loadedPane = fxmlLoader.load();
+
+                
+                FlowPane loadedContainer = new FlowPane(loadedPane);
+                loadedContainer.setAlignment(Pos.TOP_LEFT);
+                loadedContainer.setPrefWidth(201);
+                
+
+
+                orderflowpane1.getChildren().add(loadedContainer);
+    
+                // Hittar rätt fxid med hjälp av .lookup.
+                ImageView produktbild = (ImageView) loadedPane.lookup("#historyproduktbild");
+                Label produktnamn = (Label) loadedPane.lookup("#historyproduktnamn");
+                Text produktpris = (Text) loadedPane.lookup("#historyproduktpris");
+                Text numberofitems = (Text) loadedPane.lookup("#historynumberofitems");
+                // Hämtar datan om produkt
+                Product item = ord.getProduct();
+                Image image = iMatDataHandler.getFXImage(item);
+                String text = item.getName();
+                Double price = item.getPrice();
+                produktpris.setText(price.toString() + " kr");
+                produktnamn.setText(text);
+                produktbild.setImage(image);
+                numberofitems.setText(String.valueOf((int)ord.getAmount()));
+
+                
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    @FXML void order3visible(){
+        order3scrollpane.setVisible(true);
+        orderflowpane11.getChildren().clear();
+        int i = 1;
+        List<Order> temp = iMatDataHandler.getOrders();
+        if(temp.size() < 2){
+            return;
+        }
+        Order test = temp.get(2);
+        System.out.println(temp);
+        List<ShoppingItem> abc = test.getItems();
+        for (ShoppingItem ord : abc) {
+            //List<ShoppingItem> product1 = ord.getItems();
+            //produkt1
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("tomprodukttemplete.fxml"));
+            try {
+                i += 1;
+                AnchorPane loadedPane = fxmlLoader.load();
+
+                
+                FlowPane loadedContainer = new FlowPane(loadedPane);
+                loadedContainer.setAlignment(Pos.TOP_LEFT);
+                loadedContainer.setPrefWidth(201);
+                
+
+
+                orderflowpane11.getChildren().add(loadedContainer);
+    
+                // Hittar rätt fxid med hjälp av .lookup.
+                ImageView produktbild = (ImageView) loadedPane.lookup("#historyproduktbild");
+                Label produktnamn = (Label) loadedPane.lookup("#historyproduktnamn");
+                Text produktpris = (Text) loadedPane.lookup("#historyproduktpris");
+                Text numberofitems = (Text) loadedPane.lookup("#historynumberofitems");
+                // Hämtar datan om produkt
+                Product item = ord.getProduct();
+                Image image = iMatDataHandler.getFXImage(item);
+                String text = item.getName();
+                Double price = item.getPrice();
+                produktpris.setText(price.toString() + " kr");
+                produktnamn.setText(text);
+                produktbild.setImage(image);
+                numberofitems.setText(String.valueOf((int)ord.getAmount()));
+
+                
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    } 
+    @FXML void order1notvisible(){
+        order1scrollpane.setVisible(false);
+    }
+    @FXML void order2notvisible(){
+        order2scrollpane.setVisible(false);
+    }
+    @FXML void order3notvisible(){
+        order3scrollpane.setVisible(false);
+    } 
     @FXML
     private void openNewPage() {
         try {
