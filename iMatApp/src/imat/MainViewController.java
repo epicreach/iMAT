@@ -647,7 +647,7 @@ public class MainViewController implements Initializable {
             Order order = orderlist.get(0);
             Integer ordernr = order.getOrderNumber();
             Date orderdate = order.getDate();
-            ordernr1.setText("Ordernummer: " + Integer.toString(ordernr));
+            ordernr1.setText(Integer.toString(ordernr));
              
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             String dateString = dateFormat.format(orderdate);
@@ -657,7 +657,7 @@ public class MainViewController implements Initializable {
             Order order = orderlist.get(0);
             Integer ordernr = order.getOrderNumber();
             Date orderdate = order.getDate();
-            ordernr1.setText("Ordernummer: " + Integer.toString(ordernr));
+            ordernr1.setText(Integer.toString(ordernr));
              
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             String dateString = dateFormat.format(orderdate);
@@ -666,7 +666,7 @@ public class MainViewController implements Initializable {
                 Order localorder2 = orderlist.get(1);
                 Integer localordernr2 = localorder2.getOrderNumber();
                 Date localorderdate2 = localorder2.getDate();
-                ordernr2.setText("Ordernummer: " + Integer.toString(localordernr2));
+                ordernr2.setText(Integer.toString(localordernr2));
                  
                 SimpleDateFormat localdateFormat2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 String localdateString2 = localdateFormat2.format(localorderdate2);
@@ -676,7 +676,7 @@ public class MainViewController implements Initializable {
                 Order order = orderlist.get(0);
                 Integer ordernr = order.getOrderNumber();
                 Date orderdate = order.getDate();
-                ordernr3.setText("Ordernummer: " + Integer.toString(ordernr));
+                ordernr3.setText(Integer.toString(ordernr));
                  
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 String dateString = dateFormat.format(orderdate);
@@ -685,7 +685,7 @@ public class MainViewController implements Initializable {
                     Order localorder2 = orderlist.get(1);
                     Integer localordernr2 = localorder2.getOrderNumber();
                     Date localorderdate2 = localorder2.getDate();
-                    ordernr2.setText("Ordernummer: " + Integer.toString(localordernr2));
+                    ordernr2.setText(Integer.toString(localordernr2));
                      
                     SimpleDateFormat localdateFormat2 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                     String localdateString2 = localdateFormat2.format(localorderdate2);
@@ -694,7 +694,7 @@ public class MainViewController implements Initializable {
                 Order localorder3 = orderlist.get(2);
                 Integer localordernr3 = localorder3.getOrderNumber();
                 Date localorderdate3 = localorder3.getDate();
-                ordernr3.setText("Ordernummer: " + Integer.toString(localordernr3));
+                ordernr3.setText(Integer.toString(localordernr3));
                  
                 SimpleDateFormat localdateFormat3 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
                 String localdateString3 = localdateFormat3.format(localorderdate3);

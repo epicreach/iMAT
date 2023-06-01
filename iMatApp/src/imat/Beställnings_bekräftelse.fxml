@@ -28,17 +28,24 @@
                </children></VBox>
          </items>
       </ToolBar>
-      <ImageView blendMode="MULTIPLY" fitHeight="124.0" fitWidth="133.0" layoutX="438.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView blendMode="MULTIPLY" fitHeight="83.0" fitWidth="85.0" layoutX="458.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/Done.jpg" />
          </image>
       </ImageView>
       <VBox layoutX="228.0" layoutY="300.0" prefHeight="218.0" prefWidth="549.0" style="-fx-background-color: transparent;">
          <children>
-            <VBox fx:id="totalsummatext" prefHeight="91.0" prefWidth="210.0" style="-fx-background-color: transparent;" />
+            <VBox fx:id="totalsummatext" prefHeight="91.0" prefWidth="210.0" style="-fx-background-color: transparent;">
+               <children>
+                  <Label fx:id="totalsummaText" prefHeight="38.0" prefWidth="516.0" text="Total summan:">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font></Label>
+               </children>
+            </VBox>
             <Label fx:id="skickatillText" prefHeight="35.0" prefWidth="547.0" text="Din beställning skickas till:">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font size="24.0" />
                </font></Label>
          </children>
       </VBox>
@@ -48,10 +55,7 @@
             <String fx:value="pay-och-done-button" />
          </styleClass>
       </Button>
-      <Label layoutX="275.0" layoutY="71.0" prefHeight="203.0" prefWidth="456.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Tack för att du handlar hos oss! En bekräftelse har skickats till din mejladdress" textAlignment="CENTER" wrapText="true">
-         <font>
-            <Font size="18.0" />
-         </font></Label>
+      <Label layoutX="297.0" layoutY="71.0" prefHeight="160.0" prefWidth="411.0" styleClass="text-bigger" stylesheets="@imat_app.css" text="Tack för att du handlar hos oss! En bekräftelse har skickats till din mejladdress" textAlignment="CENTER" wrapText="true" />
    </children>
    <styleClass>
       <String fx:value="text-normal" />

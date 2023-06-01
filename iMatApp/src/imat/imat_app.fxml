@@ -238,12 +238,12 @@
                   </Button>
                   <AnchorPane layoutX="5.0" layoutY="93.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="440.0" style="-fx-background-color: #d3d3d3;">
                      <children>
-                        <Label fx:id="ordernr1" layoutX="10.0" layoutY="14.0">
+                        <Label fx:id="ordernr1" layoutX="10.0" layoutY="14.0" text="{Ordernr}">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="orderdate1" layoutX="14.0" layoutY="67.0">
+                        <Label fx:id="orderdate1" layoutX="14.0" layoutY="67.0" text="{Datum}">
                            <font>
                               <Font size="26.0" />
                            </font>
@@ -252,12 +252,12 @@
                   </AnchorPane>
                   <AnchorPane layoutX="5.0" layoutY="248.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="440.0" style="-fx-background-color: #d3d3d3;">
                      <children>
-                        <Label fx:id="ordernr2" layoutX="14.0" layoutY="5.0">
+                        <Label fx:id="ordernr2" layoutX="14.0" layoutY="5.0" text="{Ordernr}">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="orderdate2" layoutX="14.0" layoutY="89.0">
+                        <Label fx:id="orderdate2" layoutX="14.0" layoutY="89.0" text="{Datum}">
                            <font>
                               <Font size="26.0" />
                            </font>
@@ -266,12 +266,12 @@
                   </AnchorPane>
                   <AnchorPane layoutX="5.0" layoutY="398.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="440.0" style="-fx-background-color: #d3d3d3;">
                      <children>
-                        <Label fx:id="ordernr3" layoutX="14.0" layoutY="5.0">
+                        <Label fx:id="ordernr3" layoutX="14.0" layoutY="5.0" text="{Ordernr}">
                            <font>
                               <Font size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="orderdate3" layoutX="14.0" layoutY="89.0">
+                        <Label fx:id="orderdate3" layoutX="14.0" layoutY="89.0" text="{Datum}">
                            <font>
                               <Font size="26.0" />
                            </font>

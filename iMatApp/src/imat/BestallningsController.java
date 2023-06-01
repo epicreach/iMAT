@@ -32,6 +32,9 @@ public class BestallningsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
+        double sum = shoppingCart.getTotal();
+        String formattedSum = String.format("%.2f", sum);
+        totalsummaText.setText("Total summan: " + formattedSum + " kr");
         skickatillText.setText("Din beställning skickas till: " + customer.getAddress());
     }
     @FXML
